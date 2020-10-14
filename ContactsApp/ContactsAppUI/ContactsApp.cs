@@ -34,7 +34,7 @@ namespace ContactsAppUI
             ProjectManager projectManager = new ProjectManager();
             projectManager.SaveFile(project, null);
             project = projectManager.LoadFile(null);
-            if(project != null)
+            if(project != null && project.Contacts.Count != 0)
                 surnameTextBox.Text = project.Contacts[0].Email;
         }
 

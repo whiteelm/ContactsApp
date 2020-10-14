@@ -45,25 +45,21 @@ namespace ContactsApp
         public Project LoadFile(string filepath)
         {
             Project project;
-            if (filepath == null)
+            if (!File.Exists(filepath))
             {
-                return null;
+                return new Project();
             }
             JsonSerializer serializer = new JsonSerializer();
-
-            using (StreamReader sr = new StreamReader(filepath))
-            using (JsonReader reader = new JsonTextReader(sr))
+            try
             {
-                if (serializer.Deserialize<Project>(reader) != null)
-                {
+                using (StreamReader sr = new StreamReader(filepath))
+                using (JsonReader reader = new JsonTextReader(sr))
                     project = serializer.Deserialize<Project>(reader);
-                }
-                else
-                {
-                    throw new ArgumentException(message: "Ошибка чтения файла");
-                }
             }
-
+            catch
+            {
+                return new Project();
+            }
             return project;
         }
     }
