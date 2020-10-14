@@ -32,9 +32,10 @@ namespace ContactsAppUI
             project.Contacts.Add(contact);
             project.Contacts.Add(contact);
             ProjectManager projectManager = new ProjectManager();
-            projectManager.SaveToFile(project);
-            project = projectManager.DeserializeProject();
-            surnameTextBox.Text = project.Contacts[0].Email;
+            projectManager.SaveFile(project, null);
+            project = projectManager.LoadFile(null);
+            if(project != null)
+                surnameTextBox.Text = project.Contacts[0].Email;
         }
 
     }

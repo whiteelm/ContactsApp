@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace ContactsApp 
 {
@@ -47,21 +46,13 @@ namespace ContactsApp
             get => _surname;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _surname = LettersСase(value);
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _surname = LettersСase(value);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна фамилии не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Длина фамилии не должна превышать 50 символов");
                 }
             }
         }
@@ -75,21 +66,13 @@ namespace ContactsApp
             get => _name;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _name = LettersСase(value);
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _name = LettersСase(value);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна имени не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Длина имени не должна превышать 50 символов");
                 }
             }
         }
@@ -103,21 +86,13 @@ namespace ContactsApp
             get => _email;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _email = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _email = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна е-мейла не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Длина е-мейла не должна превышать 50 символов");
                 }
             }
         }
@@ -131,21 +106,13 @@ namespace ContactsApp
             get => _idVk;
             set
             {
-                try
+                if (CheckLength(value, 15))
                 {
-                    if (CheckLength(value, 15))
-                    {
-                        _idVk = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _idVk = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна ID Вконтакте не должна превышать 15 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Длина ID Вконтакте не должна превышать 15 символов");
                 }
             }
         }
@@ -159,21 +126,13 @@ namespace ContactsApp
             get => _birthDate;
             set
             {
-                try
+                if (value < DateTime.Now && value.Year > 1900)
                 {
-                    if (value < DateTime.Today && value.Year > 1900)
-                    {
-                        _birthDate = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _birthDate = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Дата рождения не может быть более текущей даты и не может быть менее 1900 года",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Дата рождения не может быть больше текущей даты и не может быть менее 1900 года");
                 }
             }
         }
@@ -196,8 +155,7 @@ namespace ContactsApp
         /// <returns>Возвращает изименённое слово.</returns>
         string LettersСase(string word)
         {
-            word = char.ToUpper(word[0]).ToString()+word.Substring(1);
-            return word;
+            return char.ToUpper(word[0]).ToString() + word.Substring(1);
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace ContactsApp
@@ -12,15 +13,25 @@ namespace ContactsApp
         /// <summary>
         /// Путь по которому сохраняется файл.
         /// </summary>
-        private static readonly string path = @"C:\Users\Public\Desktop\ContactsApp.notes";
+        public string PathFile()
+        {
+            var filepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return filepath + @"\ContactsApp\Contacts.json";
+        }
+
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
         /// <param name="data">Данные для сериализации.</param>
-        public void SaveToFile(Project data)
+        /// <param name="filepath">Путь до файла</param>
+        public void SaveFile(Project data, string filepath)
         {
+            if (filepath == null)
+            {
+                filepath = PathFile();
+            }
             var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(path))
+            using (var sw = new StreamWriter(filepath))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 //Вызываем сериализацию и передаем объект, который хотим сериализовать.
@@ -31,16 +42,26 @@ namespace ContactsApp
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
-        public Project DeserializeProject()
+        public Project LoadFile(string filepath)
         {
             Project project;
-
+            if (filepath == null)
+            {
+                return null;
+            }
             JsonSerializer serializer = new JsonSerializer();
 
-            using (StreamReader sr = new StreamReader(path))
+            using (StreamReader sr = new StreamReader(filepath))
             using (JsonReader reader = new JsonTextReader(sr))
             {
-                project = serializer.Deserialize<Project>(reader);
+                if (serializer.Deserialize<Project>(reader) != null)
+                {
+                    project = serializer.Deserialize<Project>(reader);
+                }
+                else
+                {
+                    throw new ArgumentException(message: "Ошибка чтения файла");
+                }
             }
 
             return project;
