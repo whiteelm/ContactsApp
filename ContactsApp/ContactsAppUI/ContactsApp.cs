@@ -51,13 +51,12 @@ namespace ContactsAppUI
         /// </summary>
         private void AddButtonClick(object sender, EventArgs e)
         {
-            var addedContact = new AddEditContact {Check = false};
+            var newContact = new Project();
+            var addedContact = new AddEditContact { TempProject = newContact, Check = false };
             addedContact.ShowDialog();
-            if (addedContact.Project == null) return;
-
-            _project.Contacts.Add(addedContact.Project.Contacts[0]);
-            ContactsListBox.Items.Add(addedContact.Project.Contacts[0].Surname);
-            ContactsListBox.SelectedIndex = _project.Contacts.Count;
+            if (addedContact.TempProject.Contacts.Count == 0) return;
+            _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
+            ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
 
             var projectManager = new ProjectManager();
             projectManager.SaveFile(_project, null);
@@ -78,11 +77,11 @@ namespace ContactsAppUI
                 var selectedIndex = ContactsListBox.SelectedIndex;
                 var selectedContact = new Project();
                 selectedContact.Contacts.Add(_project.Contacts[selectedIndex]);
-                var updatedContact = new AddEditContact {Project = selectedContact, Check = true};
+                var updatedContact = new AddEditContact { TempProject = selectedContact, Check = true};
                 updatedContact.ShowDialog();
-                if (updatedContact.Project.Contacts[0] == null) return;
+                if (updatedContact.TempProject.Contacts.Count == 0) return;
                 _project.Contacts.RemoveAt(selectedIndex);
-                _project.Contacts.Insert(selectedIndex, updatedContact.Project.Contacts[0]);
+                _project.Contacts.Insert(selectedIndex, updatedContact.TempProject.Contacts[0]);
                 
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);

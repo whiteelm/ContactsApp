@@ -53,6 +53,7 @@
             this.idVkTextBox.Name = "idVkTextBox";
             this.idVkTextBox.Size = new System.Drawing.Size(488, 20);
             this.idVkTextBox.TabIndex = 32;
+            this.idVkTextBox.TextChanged += new System.EventHandler(this.IdVkCheck);
             // 
             // emailTextBox
             // 
@@ -63,6 +64,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(488, 20);
             this.emailTextBox.TabIndex = 31;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.EmailCheck);
             // 
             // phoneTextBox
             // 
@@ -218,7 +220,7 @@
             this.Name = "AddEditContact";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add/Edit Contact";
+            this.Text = "Add Contact";
             this.Load += new System.EventHandler(this.AddEditFormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

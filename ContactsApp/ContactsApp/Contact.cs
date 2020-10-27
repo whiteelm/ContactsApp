@@ -52,7 +52,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    throw new ArgumentException("Длина фамилии не должна превышать 50 символов");
+                    throw new ArgumentException("Surname must not exceed 50 characters");
                 }
             }
         }
@@ -72,7 +72,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    throw new ArgumentException("Длина имени не должна превышать 50 символов");
+                    throw new ArgumentException("Name must not exceed 50 characters");
                 }
             }
         }
@@ -92,7 +92,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    throw new ArgumentException("Длина е-мейла не должна превышать 50 символов");
+                    throw new ArgumentException("e-mail must not exceed 50 characters");
                 }
             }
         }
@@ -112,7 +112,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    throw new ArgumentException("Длина ID Вконтакте не должна превышать 30 символов");
+                    throw new ArgumentException("ID_vk must not exceed 50 characters");
                 }
             }
         }
@@ -132,7 +132,7 @@ namespace ContactsApp
                 }
                 else
                 {
-                    throw new ArgumentException("Дата рождения не может быть больше текущей даты и не может быть менее 1900 года");
+                    throw new ArgumentException("Date of birth cannot be more than the current date and cannot be less than 1900");
                 }
             }
         }
