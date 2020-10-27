@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ContactsApp 
+namespace ContactsApp
 {
     /// <summary>
     /// Класс «Контакт» с полями «Фамилия», «Имя», «Номер телефона», «Дата рождения», «e-mail», «ID ВКонтакте».
@@ -99,20 +99,20 @@ namespace ContactsApp
 
         /// <summary>
         /// Свойство ID Вконтакте контакта.
-        /// ID Вконтакте ограничен 15 символами по длине.
+        /// ID Вконтакте ограничен 30 символами по длине.
         /// </summary>
         public string IdVk
         {
             get => _idVk;
             set
             {
-                if (CheckLength(value, 15))
+                if (CheckLength(value, 30))
                 {
                     _idVk = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Длина ID Вконтакте не должна превышать 15 символов");
+                    throw new ArgumentException("Длина ID Вконтакте не должна превышать 30 символов");
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace ContactsApp
         /// <param name="word">Слово которое нужно проверить.</param>
         /// <param name="n">Слово не должно быть длиннее чем n.</param>
         /// <returns>Показывает, что слово меньше n.</returns>
-        bool CheckLength(string word, byte n)
+        private bool CheckLength(string word, byte n)
         {
             return word.Length < n;
         }
@@ -153,7 +153,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="word">Слово которое нужно изменить.</param>
         /// <returns>Возвращает изименённое слово.</returns>
-        string LettersСase(string word)
+        private string LettersСase(string word)
         {
             return char.ToUpper(word[0]).ToString() + word.Substring(1);
         }
@@ -164,7 +164,7 @@ namespace ContactsApp
         /// <returns>Вовзвращает копию класса Contact.</returns>
         public object Clone()
         {
-            var phoneNumber = new PhoneNumber{Number = this.PhoneNumber.Number};
+            var phoneNumber = new PhoneNumber { Number = this.PhoneNumber.Number };
             return new Contact
             {
                 Surname = this.Surname,

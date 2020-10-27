@@ -11,7 +11,7 @@ namespace ContactsApp
     public class ProjectManager
     {
         /// <summary>
-        /// Путь по которому сохраняется файл.
+        /// Путь по умолчанию по которому сохраняется файл.
         /// </summary>
         public string PathFile()
         {
@@ -26,15 +26,11 @@ namespace ContactsApp
         /// <param name="filepath">Путь до файла</param>
         public void SaveFile(Project data, string filepath)
         {
-            if (filepath == null)
-            {
-                filepath = PathFile();
-            }
+            filepath = filepath ?? PathFile();
             var serializer = new JsonSerializer();
             using (var sw = new StreamWriter(filepath))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                //Вызываем сериализацию и передаем объект, который хотим сериализовать.
                 serializer.Serialize(writer, data);
             }
         }
@@ -42,14 +38,14 @@ namespace ContactsApp
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
-        public Project LoadFile(string filepath)
+        public static Project LoadFile(string filepath)
         {
             Project project;
-            if (!File.Exists(filepath))
+            if (!File.Exists(filepath) || filepath == null)
             {
                 return new Project();
             }
-            JsonSerializer serializer = new JsonSerializer();
+            var serializer = new JsonSerializer();
             try
             {
                 using (StreamReader sr = new StreamReader(filepath))

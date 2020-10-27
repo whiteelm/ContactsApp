@@ -30,6 +30,6 @@ namespace ContactsApp
                     throw new ArgumentException(message: "Номер телефона должен начинаться с 7 и быть длиной в 11 цифр");
                 }
             }
-        }   
+        }
     }
 }
