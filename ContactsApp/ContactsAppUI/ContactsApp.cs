@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using ContactsApp;
 
@@ -17,20 +18,33 @@ namespace ContactsAppUI
         /// Локальное хранилище контактов.
         /// </summary>
         private Project _project = new Project();
-
+        /// <summary>
+        /// Путь до сохранённого файла.
+        /// </summary>
+        public string FilePath = @"C:\Users\Кежик\AppData\Roaming\ContactsApp\Contacts.json";
         /// <summary>
         /// Загрузка данных из файла.
         /// </summary>
         private void MainFormLoad(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFile(@"C:\Users\Кежик\AppData\Roaming\ContactsApp\Contacts.json");
+            _project = ProjectManager.LoadFile(FilePath);
             if (_project.Contacts == null) return;
+            SortContacts();
+        }
+
+        /// <summary>
+        /// Сортировка контактов.
+        /// </summary>
+        public void SortContacts()
+        {
+            ContactsListBox.Items.Clear();
+            var sortedUsers = from u in _project.Contacts orderby u.Surname select u;
+            _project.Contacts = sortedUsers.ToList();
             foreach (var t in _project.Contacts)
             {
                 ContactsListBox.Items.Add(t.Surname);
             }
         }
-
         /// <summary>
         /// Вывод данных контакта на главную форму.
         /// </summary>
@@ -51,15 +65,23 @@ namespace ContactsAppUI
         /// </summary>
         private void AddButtonClick(object sender, EventArgs e)
         {
-            var newContact = new Project();
-            var addedContact = new AddEditContact { TempProject = newContact, Check = false };
-            addedContact.ShowDialog();
-            if (addedContact.TempProject.Contacts.Count == 0) return;
-            _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
-            ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
-
-            var projectManager = new ProjectManager();
-            projectManager.SaveFile(_project, null);
+            if (_project.Contacts.Count > 200)
+            {
+                MessageBox.Show(@"Maximum number of contacts reached", @"Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
+            }
+            else
+            {
+                var newContact = new Project();
+                var addedContact = new AddEditContact {TempProject = newContact, Check = false};
+                addedContact.ShowDialog();
+                if (addedContact.TempProject.Contacts.Count == 0) return;
+                _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
+                ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
+                SortContacts();
+                var projectManager = new ProjectManager();
+                projectManager.SaveFile(_project, FilePath);
+            }
         }
 
         /// <summary>
@@ -86,9 +108,9 @@ namespace ContactsAppUI
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);
                 ContactsListBox.SelectedIndex = selectedIndex;
-
+                SortContacts();
                 var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, null);
+                projectManager.SaveFile(_project, FilePath);
             }
         }
 
@@ -111,7 +133,7 @@ namespace ContactsAppUI
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, null);
+                projectManager.SaveFile(_project, FilePath);
             }
         }
 
@@ -155,6 +177,5 @@ namespace ContactsAppUI
         {
             Close();
         }
-
     }
 }

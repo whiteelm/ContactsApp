@@ -80,7 +80,7 @@ namespace ContactsAppUI
                 throw new ArgumentException(message: "Check the completion of all fields!");
             }
 
-            if (surnameTextBox.BackColor == Color.Firebrick || nameTextBox.BackColor == Color.Firebrick  || phoneTextBox.BackColor == Color.Firebrick)
+            if (surnameTextBox.BackColor == Color.Crimson || nameTextBox.BackColor == Color.Crimson || phoneTextBox.BackColor == Color.Crimson)
             {
                 throw new ArgumentException(message: "Check the input is correct!");
             }
@@ -114,7 +114,7 @@ namespace ContactsAppUI
         /// </summary>
         private static void Checker(Control textBox)
         {
-            textBox.BackColor = !Regex.IsMatch(textBox.Text, "^[а-яА-Я]+(-[а-яА-Я]+)?$") ? Color.Firebrick : Color.White;
+            textBox.BackColor = !Regex.IsMatch(textBox.Text, "^[а-яА-Я]+(-[а-яА-Я]+)?$") ? Color.Crimson : Color.White;
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace ContactsAppUI
         /// </summary>
         private void PhoneCheck(object sender, EventArgs e)
         {
-            phoneTextBox.BackColor = !Regex.IsMatch(phoneTextBox.Text, "^7[0-9]{0,10}$") ? Color.Firebrick : Color.White;
+            phoneTextBox.BackColor = !Regex.IsMatch(phoneTextBox.Text, "^7[0-9]{0,10}$") ? Color.Crimson : Color.White;
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace ContactsAppUI
         /// </summary>
         private void EmailCheck(object sender, EventArgs e)
         {
-            emailTextBox.BackColor = Regex.IsMatch(emailTextBox.Text, "^[А-Яа-я]") ? Color.Firebrick : Color.White;
+            emailTextBox.BackColor = Regex.IsMatch(emailTextBox.Text, "^[А-Яа-я]") ? Color.Crimson : Color.White;
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace ContactsAppUI
         /// </summary>
         private void IdVkCheck(object sender, EventArgs e)
         {
-            idVkTextBox.BackColor = Regex.IsMatch(idVkTextBox.Text, "^[А-Яа-я]") ? Color.Firebrick : Color.White;
+            idVkTextBox.BackColor = Regex.IsMatch(idVkTextBox.Text, "^[А-Яа-я]") ? Color.Crimson : Color.White;
         }
     }
 }
