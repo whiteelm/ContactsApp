@@ -8,37 +8,37 @@ namespace ContactsApp
     public class Contact : ICloneable
     {
         /// <summary>
-        /// Возвращает и задаёт фамилию контакта.
+        /// Возвращает и задаёт фамилию.
         /// </summary>
         private string _surname;
 
         /// <summary>
-        /// Возвращает и задаёт имя контакта.
+        /// Возвращает и задаёт имя.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Возвращает и задаёт дату рождения контакта.
+        /// Возвращает и задаёт дату рождения.
         /// </summary>
         private DateTime _birthDate;
 
         /// <summary>
-        /// Возвращает и задаёт e-mail контакта.
+        /// Возвращает и задаёт e-mail.
         /// </summary>
         private string _email;
 
         /// <summary>
-        /// Возвращает и задаёт ID личной страницы Вконтакте контакта.
+        /// Возвращает и задаёт ID личной страницы Вконтакте.
         /// </summary>
         private string _idVk;
 
         /// <summary>
-        /// Возвращает и задаёт номер телефона контакта.
+        /// Возвращает и задаёт номер телефона.
         /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
 
         /// <summary>
-        /// Свойство фамилии контакта.
+        /// Свойство фамилии.
         /// Первая буква преобразовывается к верхнему регистру, а также фамилия ограничена 50 символами по длине.
         /// </summary>
         public string Surname
@@ -58,7 +58,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Свойство имени контакта.
+        /// Свойство имени.
         /// Первая буква преобразовывается к верхнему регистру, а также имя ограничено 50 символами по длине.
         /// </summary>
         public string Name
@@ -78,7 +78,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Свойство е-мейла контакта.
+        /// Свойство е-мейла.
         /// Емейл ограничен 50 символами по длине.
         /// </summary>
         public string Email
@@ -98,7 +98,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Свойство ID Вконтакте контакта.
+        /// Свойство ID Вконтакте.
         /// ID Вконтакте ограничен 30 символами по длине.
         /// </summary>
         public string IdVk
@@ -118,7 +118,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Свойство даты рождения контакта.
+        /// Свойство даты рождения.
         /// Дата рождения не может быть более текущей даты и не может быть менее 1900 года.
         /// </summary>
         public DateTime BirthDate

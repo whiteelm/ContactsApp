@@ -21,13 +21,16 @@ namespace ContactsAppUI
         /// <summary>
         /// Путь до сохранённого файла.
         /// </summary>
-        public string FilePath = @"C:\Users\Кежик\AppData\Roaming\ContactsApp\Contacts.json";
+        public string FilePath()
+        {
+            return null;
+        }
         /// <summary>
         /// Загрузка данных из файла.
         /// </summary>
         private void MainFormLoad(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFile(FilePath);
+            _project = ProjectManager.LoadFile(FilePath());
             if (_project.Contacts == null) return;
             SortContacts();
         }
@@ -80,7 +83,7 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
                 SortContacts();
                 var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                projectManager.SaveFile(_project, FilePath());
             }
         }
 
@@ -110,7 +113,7 @@ namespace ContactsAppUI
                 ContactsListBox.SelectedIndex = selectedIndex;
                 SortContacts();
                 var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                projectManager.SaveFile(_project, FilePath());
             }
         }
 
@@ -133,7 +136,7 @@ namespace ContactsAppUI
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                projectManager.SaveFile(_project, FilePath());
             }
         }
 
