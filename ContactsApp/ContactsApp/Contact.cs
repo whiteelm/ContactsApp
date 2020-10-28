@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 
-namespace ContactsApp 
+namespace ContactsApp
 {
     /// <summary>
     /// Класс «Контакт» с полями «Фамилия», «Имя», «Номер телефона», «Дата рождения», «e-mail», «ID ВКонтакте».
@@ -47,21 +46,13 @@ namespace ContactsApp
             get => _surname;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _surname = LettersСase(value);
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _surname = LettersСase(value);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна фамилии не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Surname must not exceed 50 characters");
                 }
             }
         }
@@ -75,21 +66,13 @@ namespace ContactsApp
             get => _name;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _name = LettersСase(value);
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _name = LettersСase(value);
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна имени не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Name must not exceed 50 characters");
                 }
             }
         }
@@ -103,49 +86,33 @@ namespace ContactsApp
             get => _email;
             set
             {
-                try
+                if (CheckLength(value, 50))
                 {
-                    if (CheckLength(value, 50))
-                    {
-                        _email = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _email = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна е-мейла не должна превышать 50 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("e-mail must not exceed 50 characters");
                 }
             }
         }
 
         /// <summary>
         /// Свойство ID Вконтакте контакта.
-        /// ID Вконтакте ограничен 15 символами по длине.
+        /// ID Вконтакте ограничен 30 символами по длине.
         /// </summary>
         public string IdVk
         {
             get => _idVk;
             set
             {
-                try
+                if (CheckLength(value, 30))
                 {
-                    if (CheckLength(value, 15))
-                    {
-                        _idVk = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _idVk = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Длинна ID Вконтакте не должна превышать 15 символов",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("ID_vk must not exceed 50 characters");
                 }
             }
         }
@@ -159,21 +126,13 @@ namespace ContactsApp
             get => _birthDate;
             set
             {
-                try
+                if (value < DateTime.Now && value.Year > 1900)
                 {
-                    if (value < DateTime.Today && value.Year > 1900)
-                    {
-                        _birthDate = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Error");
-                    }
+                    _birthDate = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Дата рождения не может быть более текущей даты и не может быть менее 1900 года",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException("Date of birth cannot be more than the current date and cannot be less than 1900");
                 }
             }
         }
@@ -184,7 +143,7 @@ namespace ContactsApp
         /// <param name="word">Слово которое нужно проверить.</param>
         /// <param name="n">Слово не должно быть длиннее чем n.</param>
         /// <returns>Показывает, что слово меньше n.</returns>
-        bool CheckLength(string word, byte n)
+        private bool CheckLength(string word, byte n)
         {
             return word.Length < n;
         }
@@ -194,10 +153,9 @@ namespace ContactsApp
         /// </summary>
         /// <param name="word">Слово которое нужно изменить.</param>
         /// <returns>Возвращает изименённое слово.</returns>
-        string LettersСase(string word)
+        private string LettersСase(string word)
         {
-            word = char.ToUpper(word[0]).ToString()+word.Substring(1);
-            return word;
+            return char.ToUpper(word[0]).ToString() + word.Substring(1);
         }
 
         /// <summary>
@@ -206,7 +164,7 @@ namespace ContactsApp
         /// <returns>Вовзвращает копию класса Contact.</returns>
         public object Clone()
         {
-            var phoneNumber = new PhoneNumber{Number = this.PhoneNumber.Number};
+            var phoneNumber = new PhoneNumber { Number = this.PhoneNumber.Number };
             return new Contact
             {
                 Surname = this.Surname,

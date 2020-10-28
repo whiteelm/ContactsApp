@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace ContactsApp
 {
@@ -22,24 +21,15 @@ namespace ContactsApp
             get => _number;
             set
             {
-                try
+                if ((value.ToString().Length == 11) && (value.ToString()[0] == '7'))
                 {
-                    if ((value.ToString().Length == 11) && (value.ToString()[0] == '7'))
-                    {
-                        _number = value;
-                    }
-                    else
-                    {
-                        throw new ArgumentException(
-                            message: "Error");
-                    }
+                    _number = value;
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Номер телефона должен начинаться с 7 и быть длиной в 11 цифр",
-                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new ArgumentException(message: "Phone number must start with 7 and be 11 digits long");
                 }
             }
-        }   
+        }
     }
 }

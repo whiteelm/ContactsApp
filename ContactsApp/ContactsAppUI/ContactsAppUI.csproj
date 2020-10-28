@@ -49,16 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContactsAppUI.cs">
+    <Compile Include="About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContactsAppUI.Designer.cs">
-      <DependentUpon>ContactsAppUI.cs</DependentUpon>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditContact.Designer.cs">
+      <DependentUpon>AddEditContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactsApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactsApp.Designer.cs">
+      <DependentUpon>ContactsApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ContactsAppUI.resx">
-      <DependentUpon>ContactsAppUI.cs</DependentUpon>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditContact.resx">
+      <DependentUpon>AddEditContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactsApp.resx">
+      <DependentUpon>ContactsApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
