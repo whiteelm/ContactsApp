@@ -32,7 +32,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="data">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
-        public void SaveFile(Project data, string filepath)
+        public void SaveToFile(Project data, string filepath)
         {
             if (filepath == null)
             {
@@ -50,7 +50,7 @@ namespace ContactsApp
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>
-        public static Project LoadFile(string filepath)
+        public static Project LoadFromFile(string filepath)
         {
             Project project;
             if (!File.Exists(filepath) || filepath == null)

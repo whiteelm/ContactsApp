@@ -121,7 +121,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Проверка номера на ввод.
         /// </summary>
-        private void PhoneCheck(object sender, EventArgs e)
+        private  void PhoneCheck(object sender, EventArgs e)
         {
             phoneTextBox.BackColor = !Regex.IsMatch(phoneTextBox.Text, "^7[0-9]{0,10}$") ? Color.Crimson : Color.White;
         }
