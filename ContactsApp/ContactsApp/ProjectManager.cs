@@ -18,6 +18,10 @@ namespace ContactsApp
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\Contacts.json";
         }
+
+        /// <summary>
+        /// Путь по умолчанию по которому создается папка для файла.
+        /// </summary>
         public string PathDirectory()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);

@@ -18,6 +18,7 @@ namespace ContactsAppUI
         /// Локальное хранилище контактов.
         /// </summary>
         private Project _project = new Project();
+
         /// <summary>
         /// Путь до сохранённого файла.
         /// </summary>
@@ -25,6 +26,7 @@ namespace ContactsAppUI
         {
             return null;
         }
+
         /// <summary>
         /// Загрузка данных из файла.
         /// </summary>
@@ -48,6 +50,7 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Add(t.Surname);
             }
         }
+
         /// <summary>
         /// Вывод данных контакта на главную форму.
         /// </summary>

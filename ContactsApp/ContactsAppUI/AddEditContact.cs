@@ -85,6 +85,7 @@ namespace ContactsAppUI
                 throw new ArgumentException(message: "Check the input is correct!");
             }
         }
+
         /// <summary>
         /// Отмена добавления/редактирования контакта.
         /// </summary>
