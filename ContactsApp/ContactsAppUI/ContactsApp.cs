@@ -13,6 +13,7 @@ namespace ContactsAppUI
         public MainForm()
         {
             InitializeComponent();
+            KeyPreview = true;
         }
         /// <summary>
         /// Локальное хранилище контактов.
@@ -213,6 +214,17 @@ namespace ContactsAppUI
                 findProject.Contacts.Add(contact);
             }
             SortContacts(findProject);
+        }
+
+        /// <summary>
+        /// Горячая клавиша F1.
+        /// </summary>
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                AboutToolStripMenuItemClick(sender, e);
+            }
         }
     }
 }
