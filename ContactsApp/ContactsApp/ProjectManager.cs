@@ -27,6 +27,7 @@ namespace ContactsApp
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\";
         }
+
         /// <summary>
         /// Метод сериализации данных.
         /// </summary>

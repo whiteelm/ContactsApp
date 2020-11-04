@@ -20,10 +20,5 @@ namespace ContactsAppUI
         {
             Close();
         }
-
-        private void About_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

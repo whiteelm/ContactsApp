@@ -35,18 +35,18 @@ namespace ContactsAppUI
         {
             _project = ProjectManager.LoadFromFile(FilePath());
             if (_project.Contacts == null) return;
-            SortContacts();
+            SortContacts(_project);
         }
 
         /// <summary>
         /// Сортировка контактов.
         /// </summary>
-        public void SortContacts()
+        public void SortContacts(Project sortProject)
         {
             ContactsListBox.Items.Clear();
-            var sortedUsers = from u in _project.Contacts orderby u.Surname select u;
-            _project.Contacts = sortedUsers.ToList();
-            foreach (var t in _project.Contacts)
+            var sortedUsers = from u in sortProject.Contacts orderby u.Surname select u;
+            sortProject.Contacts = sortedUsers.ToList();
+            foreach (var t in sortProject.Contacts)
             {
                 ContactsListBox.Items.Add(t.Surname);
             }
@@ -85,9 +85,13 @@ namespace ContactsAppUI
                 if (addedContact.TempProject.Contacts.Count == 0) return;
                 _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
                 ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
-                SortContacts();
+                SortContacts(_project);
                 var projectManager = new ProjectManager();
                 projectManager.SaveToFile(_project, FilePath());
+                if (findTextBox.Text != "")
+                {
+                    FindTextBoxTextChanged(sender, e);
+                }
             }
         }
 
@@ -115,9 +119,13 @@ namespace ContactsAppUI
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);
                 ContactsListBox.SelectedIndex = selectedIndex;
-                SortContacts();
+                SortContacts(_project);
                 var projectManager = new ProjectManager();
                 projectManager.SaveToFile(_project, FilePath());
+                if (findTextBox.Text != "")
+                {
+                    FindTextBoxTextChanged(sender, e);
+                }
             }
         }
 
@@ -183,6 +191,28 @@ namespace ContactsAppUI
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// Сохранение при выходе из программы.
+        /// </summary>
+        private void MainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            var projectManager = new ProjectManager();
+            projectManager.SaveToFile(_project, FilePath());
+        }
+
+        /// <summary>
+        /// Поиск через текстбокс.
+        /// </summary>
+        private void FindTextBoxTextChanged(object sender, EventArgs e)
+        {
+            var findProject = new Project();
+            foreach (var contact in _project.Contacts.Where(contact => contact.Surname.StartsWith(findTextBox.Text, StringComparison.OrdinalIgnoreCase)))
+            {
+                findProject.Contacts.Add(contact);
+            }
+            SortContacts(findProject);
         }
     }
 }

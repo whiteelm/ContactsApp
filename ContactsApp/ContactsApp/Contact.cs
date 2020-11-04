@@ -3,7 +3,7 @@
 namespace ContactsApp
 {
     /// <summary>
-    /// Класс «Контакт» с полями «Фамилия», «Имя», «Номер телефона», «Дата рождения», «e-mail», «ID ВКонтакте».
+    /// Класс с данными контакта и интерфейсом ICloneable.
     /// </summary>
     public class Contact : ICloneable
     {
