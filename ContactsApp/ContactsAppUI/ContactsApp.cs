@@ -217,7 +217,7 @@ namespace ContactsAppUI
         }
 
         /// <summary>
-        /// Горячая клавиша F1.
+        /// Вызов окна About по горячей клавише F1.
         /// </summary>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {

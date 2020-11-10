@@ -65,7 +65,7 @@
             this.findLabel.AutoSize = true;
             this.findLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findLabel.Location = new System.Drawing.Point(13, 32);
-            this.findLabel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.findLabel.Margin = new System.Windows.Forms.Padding(5);
             this.findLabel.Name = "findLabel";
             this.findLabel.Size = new System.Drawing.Size(30, 13);
             this.findLabel.TabIndex = 0;
@@ -75,7 +75,7 @@
             // 
             this.findTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.findTextBox.Location = new System.Drawing.Point(53, 29);
-            this.findTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.findTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.findTextBox.Name = "findTextBox";
             this.findTextBox.Size = new System.Drawing.Size(306, 20);
             this.findTextBox.TabIndex = 1;
@@ -154,7 +154,7 @@
             this.surnameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.surnameTextBox.Location = new System.Drawing.Point(463, 29);
-            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.ReadOnly = true;
             this.surnameTextBox.Size = new System.Drawing.Size(376, 20);
@@ -167,7 +167,7 @@
             this.nameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameTextBox.Location = new System.Drawing.Point(463, 58);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(376, 20);
@@ -180,7 +180,7 @@
             this.phoneTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.phoneTextBox.Location = new System.Drawing.Point(463, 118);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(376, 20);
@@ -193,7 +193,7 @@
             this.emailTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.emailTextBox.Location = new System.Drawing.Point(463, 149);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(376, 20);
@@ -206,7 +206,7 @@
             this.idVkTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.idVkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.idVkTextBox.Location = new System.Drawing.Point(463, 178);
-            this.idVkTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.idVkTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.idVkTextBox.Name = "idVkTextBox";
             this.idVkTextBox.ReadOnly = true;
             this.idVkTextBox.Size = new System.Drawing.Size(376, 20);
@@ -239,7 +239,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -285,7 +285,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
             // 
@@ -294,7 +294,7 @@
             this.birthDateBox.BackColor = System.Drawing.SystemColors.Window;
             this.birthDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.birthDateBox.Location = new System.Drawing.Point(463, 89);
-            this.birthDateBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.birthDateBox.Margin = new System.Windows.Forms.Padding(5);
             this.birthDateBox.Name = "birthDateBox";
             this.birthDateBox.ReadOnly = true;
             this.birthDateBox.Size = new System.Drawing.Size(67, 20);
@@ -389,7 +389,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Book Antiqua", 12F);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(985, 552);
             this.MinimumSize = new System.Drawing.Size(766, 380);
