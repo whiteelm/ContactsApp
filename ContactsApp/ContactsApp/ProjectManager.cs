@@ -13,7 +13,7 @@ namespace ContactsApp
         /// <summary>
         /// Путь по умолчанию по которому сохраняется файл.
         /// </summary>
-        public string PathFile()
+        public static string PathFile()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\Contacts.json";
@@ -22,7 +22,7 @@ namespace ContactsApp
         /// <summary>
         /// Путь по умолчанию по которому создается папка для файла.
         /// </summary>
-        public string PathDirectory()
+        public static string PathDirectory()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\";
@@ -33,7 +33,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="data">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
-        public void SaveToFile(Project data, string filepath)
+        public static void SaveToFile(Project data, string filepath)
         {
             try
             {

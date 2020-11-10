@@ -217,10 +217,6 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.HighlightText;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
@@ -303,40 +299,49 @@
             // deleteButton
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
+            this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deleteButton.FlatAppearance.BorderSize = 0;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteButton.Location = new System.Drawing.Point(220, 376);
+            this.deleteButton.Location = new System.Drawing.Point(116, 384);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(5);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(93, 26);
+            this.deleteButton.Size = new System.Drawing.Size(40, 40);
             this.deleteButton.TabIndex = 17;
-            this.deleteButton.Text = "Delete";
-            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
             // 
             // editButton
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editButton.BackColor = System.Drawing.SystemColors.Window;
+            this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editButton.FlatAppearance.BorderSize = 0;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editButton.Location = new System.Drawing.Point(117, 376);
+            this.editButton.Location = new System.Drawing.Point(66, 384);
             this.editButton.Margin = new System.Windows.Forms.Padding(5);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(93, 26);
+            this.editButton.Size = new System.Drawing.Size(40, 40);
             this.editButton.TabIndex = 16;
-            this.editButton.Text = "Edit";
-            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.EditButtonClick);
             // 
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addButton.BackColor = System.Drawing.SystemColors.Window;
+            this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.Location = new System.Drawing.Point(14, 376);
+            this.addButton.Location = new System.Drawing.Point(16, 384);
             this.addButton.Margin = new System.Windows.Forms.Padding(5);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(93, 26);
+            this.addButton.Size = new System.Drawing.Size(40, 40);
             this.addButton.TabIndex = 15;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.AddButtonClick);
             // 
             // ContactsListBox
@@ -348,7 +353,7 @@
             this.ContactsListBox.Location = new System.Drawing.Point(14, 32);
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(5);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(346, 329);
+            this.ContactsListBox.Size = new System.Drawing.Size(346, 342);
             this.ContactsListBox.TabIndex = 19;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBoxSelectedIndexChanged);
             // 
@@ -362,7 +367,7 @@
             this.panel1.Controls.Add(this.editButton);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(380, 410);
+            this.panel1.Size = new System.Drawing.Size(380, 464);
             this.panel1.TabIndex = 22;
             // 
             // MainForm
@@ -370,7 +375,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(854, 459);
+            this.ClientSize = new System.Drawing.Size(854, 513);
             this.Controls.Add(this.birthDateBox);
             this.Controls.Add(this.idVkTextBox);
             this.Controls.Add(this.emailTextBox);

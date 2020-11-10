@@ -15,6 +15,7 @@ namespace ContactsAppUI
             InitializeComponent();
             KeyPreview = true;
         }
+
         /// <summary>
         /// Локальное хранилище контактов.
         /// </summary>
@@ -87,8 +88,7 @@ namespace ContactsAppUI
                 _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
                 ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
                 SortContacts(_project);
-                var projectManager = new ProjectManager();
-                projectManager.SaveToFile(_project, FilePath());
+                ProjectManager.SaveToFile(_project, FilePath());
                 if (findTextBox.Text != "")
                 {
                     FindTextBoxTextChanged(sender, e);
@@ -121,8 +121,7 @@ namespace ContactsAppUI
                 ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);
                 ContactsListBox.SelectedIndex = selectedIndex;
                 SortContacts(_project);
-                var projectManager = new ProjectManager();
-                projectManager.SaveToFile(_project, FilePath());
+                ProjectManager.SaveToFile(_project, FilePath());
                 if (findTextBox.Text != "")
                 {
                     FindTextBoxTextChanged(sender, e);
@@ -148,8 +147,7 @@ namespace ContactsAppUI
                 if (result != DialogResult.OK) return;
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
-                var projectManager = new ProjectManager();
-                projectManager.SaveToFile(_project, FilePath());
+                ProjectManager.SaveToFile(_project, FilePath());
             }
         }
 
@@ -199,8 +197,7 @@ namespace ContactsAppUI
         /// </summary>
         private void MainFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            var projectManager = new ProjectManager();
-            projectManager.SaveToFile(_project, FilePath());
+            ProjectManager.SaveToFile(_project, FilePath());
         }
 
         /// <summary>
