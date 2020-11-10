@@ -55,7 +55,6 @@
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +64,6 @@
             this.deleteContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +71,7 @@
             // 
             this.findLabel.AutoSize = true;
             this.findLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findLabel.Location = new System.Drawing.Point(13, 32);
+            this.findLabel.Location = new System.Drawing.Point(14, 32);
             this.findLabel.Margin = new System.Windows.Forms.Padding(5);
             this.findLabel.Name = "findLabel";
             this.findLabel.Size = new System.Drawing.Size(30, 13);
@@ -302,10 +300,10 @@
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteButton.Location = new System.Drawing.Point(114, 402);
+            this.deleteButton.Location = new System.Drawing.Point(94, 466);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(5);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(40, 40);
+            this.deleteButton.Size = new System.Drawing.Size(30, 30);
             this.deleteButton.TabIndex = 17;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
@@ -319,10 +317,10 @@
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editButton.Location = new System.Drawing.Point(64, 402);
+            this.editButton.Location = new System.Drawing.Point(54, 466);
             this.editButton.Margin = new System.Windows.Forms.Padding(5);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(40, 40);
+            this.editButton.Size = new System.Drawing.Size(30, 30);
             this.editButton.TabIndex = 16;
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.EditButtonClick);
@@ -336,10 +334,10 @@
             this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.Location = new System.Drawing.Point(14, 402);
+            this.addButton.Location = new System.Drawing.Point(14, 466);
             this.addButton.Margin = new System.Windows.Forms.Padding(5);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(40, 40);
+            this.addButton.Size = new System.Drawing.Size(30, 30);
             this.addButton.TabIndex = 15;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.AddButtonClick);
@@ -350,25 +348,12 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ContactsListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ContactsListBox.FormattingEnabled = true;
-            this.ContactsListBox.Location = new System.Drawing.Point(14, 32);
+            this.ContactsListBox.Location = new System.Drawing.Point(14, 59);
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(5);
             this.ContactsListBox.Name = "ContactsListBox";
-            this.ContactsListBox.Size = new System.Drawing.Size(346, 355);
+            this.ContactsListBox.Size = new System.Drawing.Size(346, 381);
             this.ContactsListBox.TabIndex = 19;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBoxSelectedIndexChanged);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Controls.Add(this.addButton);
-            this.panel1.Controls.Add(this.ContactsListBox);
-            this.panel1.Controls.Add(this.deleteButton);
-            this.panel1.Controls.Add(this.editButton);
-            this.panel1.Location = new System.Drawing.Point(0, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(380, 443);
-            this.panel1.TabIndex = 22;
             // 
             // menuStrip1
             // 
@@ -448,9 +433,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(854, 482);
+            this.ClientSize = new System.Drawing.Size(854, 510);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.birthDateBox);
+            this.Controls.Add(this.ContactsListBox);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.idVkTextBox);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -463,7 +452,6 @@
             this.Controls.Add(this.surnameLabel);
             this.Controls.Add(this.findTextBox);
             this.Controls.Add(this.findLabel);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Book Antiqua", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -477,7 +465,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
             this.Load += new System.EventHandler(this.MainFormLoad);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -513,7 +500,6 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.ListBox ContactsListBox;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem1;
