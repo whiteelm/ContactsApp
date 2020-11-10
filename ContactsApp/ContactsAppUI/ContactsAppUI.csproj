@@ -120,11 +120,5 @@
   <ItemGroup>
     <None Include="Resources\MainFormIcon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DeleteButtonIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EditButtonIcon.ico" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
