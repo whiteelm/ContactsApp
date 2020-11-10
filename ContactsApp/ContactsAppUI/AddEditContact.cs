@@ -77,9 +77,8 @@ namespace ContactsAppUI
         {
             if (surnameTextBox.Text != "" || surnameTextBox.Text != "" || phoneTextBox.Text != "" || emailTextBox.Text != "" || idVkTextBox.Text != "")
             {
-                var dialogResult = MessageBox.Show(@"Are you sure you want to cancel?
-The entered data will not be saved.",
-                    @"Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                var dialogResult = MessageBox.Show(@"The entered data will not be saved.",
+                    @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Close();
@@ -98,35 +97,35 @@ The entered data will not be saved.",
         {
             if (surnameTextBox.Text == "")
             {
-                throw new ArgumentException(message: "You did not enter a surname!");
+                throw new ArgumentException(message: "Surname is not entered!");
             }
             if (nameTextBox.Text == "")
             {
-                throw new ArgumentException(message: "You did not enter a name!");
+                throw new ArgumentException(message: "Name is not entered!");
             }
             if (phoneTextBox.Text == "")
             {
-                throw new ArgumentException(message: "You did not enter a phone number!");
+                throw new ArgumentException(message: "Phone number is not entered!");
             }
-            if (surnameTextBox.BackColor == Color.Crimson)
+            if (surnameTextBox.BackColor == Color.LightCoral)
             {
-                throw new ArgumentException(message: "Check the surname input is correct!");
+                throw new ArgumentException(message: "Surname is not correct!");
             }
-            if (nameTextBox.BackColor == Color.Crimson)
+            if (nameTextBox.BackColor == Color.LightCoral)
             {
-                throw new ArgumentException(message: "Check the name input is correct!");
+                throw new ArgumentException(message: "Name is not correct!");
             }
-            if (phoneTextBox.BackColor == Color.Crimson)
+            if (phoneTextBox.BackColor == Color.LightCoral)
             {
-                throw new ArgumentException(message: "Check the phone number input is correct!!");
+                throw new ArgumentException(message: "Phone number is not correct!");
             }
-            if (emailTextBox.BackColor == Color.Crimson)
+            if (emailTextBox.BackColor == Color.LightCoral)
             {
-                throw new ArgumentException(message: "Check the email input is correct!!");
+                throw new ArgumentException(message: "E-mail is not correct");
             }
-            if (idVkTextBox.BackColor == Color.Crimson)
+            if (idVkTextBox.BackColor == Color.LightCoral)
             {
-                throw new ArgumentException(message: "Check the ID_vk input is correct!!");
+                throw new ArgumentException(message: "ID_vk is not correct!");
             }
         }
 
@@ -162,7 +161,7 @@ The entered data will not be saved.",
         /// </summary>
         private void EmailCheck(object sender, EventArgs e)
         {
-            const string pattern = "[A-Za-z]";
+            const string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             Checker(emailTextBox, pattern);
         }
 
@@ -171,7 +170,7 @@ The entered data will not be saved.",
         /// </summary>
         private void IdVkCheck(object sender, EventArgs e)
         {
-            const string pattern = "[A-Za-z]";
+            const string pattern = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
             Checker(idVkTextBox, pattern);
         }
         /// <summary>
@@ -179,7 +178,7 @@ The entered data will not be saved.",
         /// </summary>
         private static void Checker(Control textBox, string pattern)
         {
-            textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.Crimson : Color.White;
+            textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.LightCoral : Color.White;
         }
     }
 }

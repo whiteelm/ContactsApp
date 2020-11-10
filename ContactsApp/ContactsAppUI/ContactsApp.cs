@@ -103,7 +103,7 @@ namespace ContactsAppUI
         {
             if (ContactsListBox.SelectedIndex == -1)
             {
-                MessageBox.Show(@"Select the contact you want to edit.", @"Contact not selected",
+                MessageBox.Show(@"Select the contact.", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -137,13 +137,13 @@ namespace ContactsAppUI
         {
             if (ContactsListBox.SelectedIndex == -1)
             {
-                MessageBox.Show(@"Select the contact you want to delete.", @"Contact not selected",
+                MessageBox.Show(@"Select the contact.", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 var selectedIndex = ContactsListBox.SelectedIndex;
-                var result = MessageBox.Show($@"Do you really want to remove this contact: {_project.Contacts[selectedIndex].Surname}",
+                var result = MessageBox.Show($@"Do you really want to delete this contact: {_project.Contacts[selectedIndex].Surname}",
                     @"Сonfirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (result != DialogResult.OK) return;
                 _project.Contacts.RemoveAt(selectedIndex);

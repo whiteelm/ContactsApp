@@ -35,16 +35,37 @@ namespace ContactsApp
         /// <param name="filepath">Путь до файла</param>
         public void SaveToFile(Project data, string filepath)
         {
-            if (!File.Exists(filepath))
+            try
             {
-                Directory.CreateDirectory(PathDirectory());
-                filepath = PathFile();
+                var serializer = new JsonSerializer();
+                using (var sw = new StreamWriter(filepath))
+                using (JsonWriter writer = new JsonTextWriter(sw))
+                {
+                    serializer.Serialize(writer, data);
+                }
             }
-            var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filepath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            catch
             {
-                serializer.Serialize(writer, data);
+                filepath = PathFile();
+                try
+                {
+                    var serializer = new JsonSerializer();
+                    using (var sw = new StreamWriter(filepath))
+                    using (JsonWriter writer = new JsonTextWriter(sw))
+                    {
+                        serializer.Serialize(writer, data);
+                    }
+                }
+                catch
+                {
+                    Directory.CreateDirectory(PathDirectory());
+                    var serializer = new JsonSerializer();
+                    using (var sw = new StreamWriter(filepath))
+                    using (JsonWriter writer = new JsonTextWriter(sw))
+                    {
+                        serializer.Serialize(writer, data);
+                    }
+                }
             }
         }
 

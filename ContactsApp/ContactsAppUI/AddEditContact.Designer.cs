@@ -55,7 +55,7 @@
             this.idVkTextBox.Name = "idVkTextBox";
             this.idVkTextBox.Size = new System.Drawing.Size(381, 20);
             this.idVkTextBox.TabIndex = 32;
-            this.idVkTextBox.TextChanged += new System.EventHandler(this.IdVkCheck);
+            this.idVkTextBox.Leave += new System.EventHandler(this.IdVkCheck);
             // 
             // emailTextBox
             // 
@@ -68,7 +68,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(381, 20);
             this.emailTextBox.TabIndex = 31;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.EmailCheck);
+            this.emailTextBox.Leave += new System.EventHandler(this.EmailCheck);
             // 
             // phoneTextBox
             // 
@@ -81,7 +81,7 @@
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(381, 20);
             this.phoneTextBox.TabIndex = 30;
-            this.phoneTextBox.TextChanged += new System.EventHandler(this.PhoneCheck);
+            this.phoneTextBox.Leave += new System.EventHandler(this.PhoneCheck);
             // 
             // nameTextBox
             // 
@@ -94,7 +94,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(381, 20);
             this.nameTextBox.TabIndex = 29;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.NameCheck);
+            this.nameTextBox.Leave += new System.EventHandler(this.NameCheck);
             // 
             // surnameTextBox
             // 
@@ -107,7 +107,7 @@
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(381, 20);
             this.surnameTextBox.TabIndex = 28;
-            this.surnameTextBox.TextChanged += new System.EventHandler(this.SurnameCheck);
+            this.surnameTextBox.Leave += new System.EventHandler(this.SurnameCheck);
             // 
             // idVkLabel
             // 
