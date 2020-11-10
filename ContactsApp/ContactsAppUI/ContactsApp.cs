@@ -13,38 +13,47 @@ namespace ContactsAppUI
         public MainForm()
         {
             InitializeComponent();
+            KeyPreview = true;
         }
+
         /// <summary>
         /// Локальное хранилище контактов.
         /// </summary>
         private Project _project = new Project();
+
         /// <summary>
         /// Путь до сохранённого файла.
         /// </summary>
-        public string FilePath = @"C:\Users\Кежик\AppData\Roaming\ContactsApp\Contacts.json";
+        public string FilePath()
+        {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            return path + @"\ContactsApp\Contacts.json";
+        }
+
         /// <summary>
         /// Загрузка данных из файла.
         /// </summary>
         private void MainFormLoad(object sender, EventArgs e)
         {
-            _project = ProjectManager.LoadFile(FilePath);
+            _project = ProjectManager.LoadFromFile(FilePath());
             if (_project.Contacts == null) return;
-            SortContacts();
+            SortContacts(_project);
         }
 
         /// <summary>
         /// Сортировка контактов.
         /// </summary>
-        public void SortContacts()
+        public void SortContacts(Project sortProject)
         {
             ContactsListBox.Items.Clear();
-            var sortedUsers = from u in _project.Contacts orderby u.Surname select u;
-            _project.Contacts = sortedUsers.ToList();
-            foreach (var t in _project.Contacts)
+            var sortedUsers = from u in sortProject.Contacts orderby u.Surname select u;
+            sortProject.Contacts = sortedUsers.ToList();
+            foreach (var t in sortProject.Contacts)
             {
                 ContactsListBox.Items.Add(t.Surname);
             }
         }
+
         /// <summary>
         /// Вывод данных контакта на главную форму.
         /// </summary>
@@ -78,9 +87,12 @@ namespace ContactsAppUI
                 if (addedContact.TempProject.Contacts.Count == 0) return;
                 _project.Contacts.Add(addedContact.TempProject.Contacts[0]);
                 ContactsListBox.Items.Add(addedContact.TempProject.Contacts[0].Surname);
-                SortContacts();
-                var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                SortContacts(_project);
+                ProjectManager.SaveToFile(_project, FilePath());
+                if (findTextBox.Text != "")
+                {
+                    FindTextBoxTextChanged(sender, e);
+                }
             }
         }
 
@@ -91,7 +103,7 @@ namespace ContactsAppUI
         {
             if (ContactsListBox.SelectedIndex == -1)
             {
-                MessageBox.Show(@"Select the contact you want to edit.", @"Contact not selected",
+                MessageBox.Show(@"Select the contact.", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -108,9 +120,12 @@ namespace ContactsAppUI
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);
                 ContactsListBox.SelectedIndex = selectedIndex;
-                SortContacts();
-                var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                SortContacts(_project);
+                ProjectManager.SaveToFile(_project, FilePath());
+                if (findTextBox.Text != "")
+                {
+                    FindTextBoxTextChanged(sender, e);
+                }
             }
         }
 
@@ -121,19 +136,18 @@ namespace ContactsAppUI
         {
             if (ContactsListBox.SelectedIndex == -1)
             {
-                MessageBox.Show(@"Select the contact you want to delete.", @"Contact not selected",
+                MessageBox.Show(@"Select the contact.", @"Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 var selectedIndex = ContactsListBox.SelectedIndex;
-                var result = MessageBox.Show($@"Do you really want to remove this contact: {_project.Contacts[selectedIndex].Surname}",
+                var result = MessageBox.Show($@"Do you really want to delete this contact: {_project.Contacts[selectedIndex].Surname}",
                     @"Сonfirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (result != DialogResult.OK) return;
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
-                var projectManager = new ProjectManager();
-                projectManager.SaveFile(_project, FilePath);
+                ProjectManager.SaveToFile(_project, FilePath());
             }
         }
 
@@ -176,6 +190,38 @@ namespace ContactsAppUI
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             Close();
+        }
+
+        /// <summary>
+        /// Сохранение при выходе из программы.
+        /// </summary>
+        private void MainFormFormClosing(object sender, FormClosingEventArgs e)
+        {
+            ProjectManager.SaveToFile(_project, FilePath());
+        }
+
+        /// <summary>
+        /// Поиск через текстбокс.
+        /// </summary>
+        private void FindTextBoxTextChanged(object sender, EventArgs e)
+        {
+            var findProject = new Project();
+            foreach (var contact in _project.Contacts.Where(contact => contact.Surname.StartsWith(findTextBox.Text, StringComparison.OrdinalIgnoreCase)))
+            {
+                findProject.Contacts.Add(contact);
+            }
+            SortContacts(findProject);
+        }
+
+        /// <summary>
+        /// Вызов окна About по горячей клавише F1.
+        /// </summary>
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                AboutToolStripMenuItemClick(sender, e);
+            }
         }
     }
 }

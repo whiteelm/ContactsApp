@@ -71,26 +71,62 @@ namespace ContactsAppUI
         }
 
         /// <summary>
-        /// Проверка имени, фамилии и номера на заполненность и верность заполнения.
-        /// </summary>
-        public void CheckEmptyCorrect()
-        {
-            if (surnameTextBox.Text == "" || nameTextBox.Text == "" || phoneTextBox.Text == "")
-            {
-                throw new ArgumentException(message: "Check the completion of all fields!");
-            }
-
-            if (surnameTextBox.BackColor == Color.Crimson || nameTextBox.BackColor == Color.Crimson || phoneTextBox.BackColor == Color.Crimson)
-            {
-                throw new ArgumentException(message: "Check the input is correct!");
-            }
-        }
-        /// <summary>
         /// Отмена добавления/редактирования контакта.
         /// </summary>
         private void CancelButtonClick(object sender, EventArgs e)
         {
-            Close();
+            if (surnameTextBox.Text != "" || surnameTextBox.Text != "" || phoneTextBox.Text != "" || emailTextBox.Text != "" || idVkTextBox.Text != "")
+            {
+                var dialogResult = MessageBox.Show(@"The entered data will not be saved.",
+                    @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        /// <summary>
+        /// Проверка данных на заполненность и верность заполнения.
+        /// </summary>
+        public void CheckEmptyCorrect()
+        {
+            if (surnameTextBox.Text == "")
+            {
+                throw new ArgumentException(message: "Surname is not entered!");
+            }
+            if (nameTextBox.Text == "")
+            {
+                throw new ArgumentException(message: "Name is not entered!");
+            }
+            if (phoneTextBox.Text == "")
+            {
+                throw new ArgumentException(message: "Phone number is not entered!");
+            }
+            if (surnameTextBox.BackColor == Color.LightCoral)
+            {
+                throw new ArgumentException(message: "Surname is not correct!");
+            }
+            if (nameTextBox.BackColor == Color.LightCoral)
+            {
+                throw new ArgumentException(message: "Name is not correct!");
+            }
+            if (phoneTextBox.BackColor == Color.LightCoral)
+            {
+                throw new ArgumentException(message: "Phone number is not correct!");
+            }
+            if (emailTextBox.BackColor == Color.LightCoral)
+            {
+                throw new ArgumentException(message: "E-mail is not correct");
+            }
+            if (idVkTextBox.BackColor == Color.LightCoral)
+            {
+                throw new ArgumentException(message: "ID_vk is not correct!");
+            }
         }
 
         /// <summary>
@@ -98,7 +134,8 @@ namespace ContactsAppUI
         /// </summary>
         private void SurnameCheck(object sender, EventArgs e)
         {
-            Checker(surnameTextBox);
+            const string pattern = "^[а-яА-Я]+(-[а-яА-Я]+)?$";
+            Checker(surnameTextBox, pattern);
         }
 
         /// <summary>
@@ -106,23 +143,17 @@ namespace ContactsAppUI
         /// </summary>
         private void NameCheck(object sender, EventArgs e)
         {
-            Checker(nameTextBox);
+            const string pattern = "^[а-яА-Я]+(-[а-яА-Я]+)?$";
+            Checker(nameTextBox, pattern);
         }
-
-        /// <summary>
-        /// Проверка текста на отсутствие знаков кроме букв и "-", которое может быть только внутри слова.
-        /// </summary>
-        private static void Checker(Control textBox)
-        {
-            textBox.BackColor = !Regex.IsMatch(textBox.Text, "^[а-яА-Я]+(-[а-яА-Я]+)?$") ? Color.Crimson : Color.White;
-        }
-
+        
         /// <summary>
         /// Проверка номера на ввод.
         /// </summary>
-        private void PhoneCheck(object sender, EventArgs e)
+        private  void PhoneCheck(object sender, EventArgs e)
         {
-            phoneTextBox.BackColor = !Regex.IsMatch(phoneTextBox.Text, "^7[0-9]{0,10}$") ? Color.Crimson : Color.White;
+            const string pattern = "^7[0-9]{0,10}$";
+            Checker(phoneTextBox, pattern);
         }
 
         /// <summary>
@@ -130,7 +161,8 @@ namespace ContactsAppUI
         /// </summary>
         private void EmailCheck(object sender, EventArgs e)
         {
-            emailTextBox.BackColor = Regex.IsMatch(emailTextBox.Text, "^[А-Яа-я]") ? Color.Crimson : Color.White;
+            const string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            Checker(emailTextBox, pattern);
         }
 
         /// <summary>
@@ -138,7 +170,15 @@ namespace ContactsAppUI
         /// </summary>
         private void IdVkCheck(object sender, EventArgs e)
         {
-            idVkTextBox.BackColor = Regex.IsMatch(idVkTextBox.Text, "^[А-Яа-я]") ? Color.Crimson : Color.White;
+            const string pattern = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
+            Checker(idVkTextBox, pattern);
+        }
+        /// <summary>
+        /// Проверка текстбокса по паттерну.
+        /// </summary>
+        private static void Checker(Control textBox, string pattern)
+        {
+            textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.LightCoral : Color.White;
         }
     }
 }

@@ -46,65 +46,75 @@
             // 
             // idVkTextBox
             // 
+            this.idVkTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.idVkTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.idVkTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.idVkTextBox.Location = new System.Drawing.Point(94, 160);
+            this.idVkTextBox.Location = new System.Drawing.Point(76, 164);
             this.idVkTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.idVkTextBox.Name = "idVkTextBox";
-            this.idVkTextBox.Size = new System.Drawing.Size(488, 20);
+            this.idVkTextBox.Size = new System.Drawing.Size(381, 20);
             this.idVkTextBox.TabIndex = 32;
-            this.idVkTextBox.TextChanged += new System.EventHandler(this.IdVkCheck);
+            this.idVkTextBox.Leave += new System.EventHandler(this.IdVkCheck);
             // 
             // emailTextBox
             // 
+            this.emailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.emailTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.emailTextBox.Location = new System.Drawing.Point(94, 130);
+            this.emailTextBox.Location = new System.Drawing.Point(76, 134);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(488, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(381, 20);
             this.emailTextBox.TabIndex = 31;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.EmailCheck);
+            this.emailTextBox.Leave += new System.EventHandler(this.EmailCheck);
             // 
             // phoneTextBox
             // 
+            this.phoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.phoneTextBox.Location = new System.Drawing.Point(94, 100);
+            this.phoneTextBox.Location = new System.Drawing.Point(76, 104);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(488, 20);
+            this.phoneTextBox.Size = new System.Drawing.Size(381, 20);
             this.phoneTextBox.TabIndex = 30;
-            this.phoneTextBox.TextChanged += new System.EventHandler(this.PhoneCheck);
+            this.phoneTextBox.Leave += new System.EventHandler(this.PhoneCheck);
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameTextBox.Location = new System.Drawing.Point(94, 44);
+            this.nameTextBox.Location = new System.Drawing.Point(76, 44);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(488, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(381, 20);
             this.nameTextBox.TabIndex = 29;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.NameCheck);
+            this.nameTextBox.Leave += new System.EventHandler(this.NameCheck);
             // 
             // surnameTextBox
             // 
+            this.surnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.surnameTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surnameTextBox.Location = new System.Drawing.Point(94, 14);
+            this.surnameTextBox.Location = new System.Drawing.Point(76, 14);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(488, 20);
+            this.surnameTextBox.Size = new System.Drawing.Size(381, 20);
             this.surnameTextBox.TabIndex = 28;
-            this.surnameTextBox.TextChanged += new System.EventHandler(this.SurnameCheck);
+            this.surnameTextBox.Leave += new System.EventHandler(this.SurnameCheck);
             // 
             // idVkLabel
             // 
             this.idVkLabel.AutoSize = true;
             this.idVkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.idVkLabel.Location = new System.Drawing.Point(26, 164);
-            this.idVkLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.idVkLabel.Location = new System.Drawing.Point(21, 167);
+            this.idVkLabel.Margin = new System.Windows.Forms.Padding(5);
             this.idVkLabel.Name = "idVkLabel";
             this.idVkLabel.Size = new System.Drawing.Size(45, 13);
             this.idVkLabel.TabIndex = 27;
@@ -114,8 +124,8 @@
             // 
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.emailLabel.Location = new System.Drawing.Point(33, 134);
-            this.emailLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.emailLabel.Location = new System.Drawing.Point(28, 137);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(5);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(38, 13);
             this.emailLabel.TabIndex = 26;
@@ -125,8 +135,8 @@
             // 
             this.phoneLabel.AutoSize = true;
             this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.phoneLabel.Location = new System.Drawing.Point(30, 104);
-            this.phoneLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.phoneLabel.Location = new System.Drawing.Point(25, 107);
+            this.phoneLabel.Margin = new System.Windows.Forms.Padding(5);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(41, 13);
             this.phoneLabel.TabIndex = 25;
@@ -136,8 +146,8 @@
             // 
             this.birthdayLabel.AutoSize = true;
             this.birthdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthdayLabel.Location = new System.Drawing.Point(23, 76);
-            this.birthdayLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.birthdayLabel.Location = new System.Drawing.Point(18, 78);
+            this.birthdayLabel.Margin = new System.Windows.Forms.Padding(5);
             this.birthdayLabel.Name = "birthdayLabel";
             this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.birthdayLabel.TabIndex = 24;
@@ -147,8 +157,8 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameLabel.Location = new System.Drawing.Point(33, 48);
-            this.nameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.nameLabel.Location = new System.Drawing.Point(28, 47);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(5);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(38, 13);
             this.nameLabel.TabIndex = 23;
@@ -158,8 +168,8 @@
             // 
             this.surnameLabel.AutoSize = true;
             this.surnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surnameLabel.Location = new System.Drawing.Point(19, 18);
-            this.surnameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.surnameLabel.Location = new System.Drawing.Point(14, 17);
+            this.surnameLabel.Margin = new System.Windows.Forms.Padding(5);
             this.surnameLabel.Name = "surnameLabel";
             this.surnameLabel.Size = new System.Drawing.Size(52, 13);
             this.surnameLabel.TabIndex = 22;
@@ -167,7 +177,9 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(407, 197);
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(297, 194);
+            this.okButton.Margin = new System.Windows.Forms.Padding(5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 34;
@@ -177,7 +189,9 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(507, 197);
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelButton.Location = new System.Drawing.Point(382, 194);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(5);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 35;
@@ -188,7 +202,8 @@
             // birthDatePicker
             // 
             this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthDatePicker.Location = new System.Drawing.Point(94, 72);
+            this.birthDatePicker.Location = new System.Drawing.Point(76, 74);
+            this.birthDatePicker.Margin = new System.Windows.Forms.Padding(5);
             this.birthDatePicker.MaxDate = new System.DateTime(2020, 10, 27, 0, 0, 0, 0);
             this.birthDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthDatePicker.Name = "birthDatePicker";
@@ -200,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 232);
+            this.ClientSize = new System.Drawing.Size(477, 234);
             this.Controls.Add(this.birthDatePicker);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -215,8 +230,9 @@
             this.Controls.Add(this.birthdayLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.surnameLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(600, 273);
+            this.MinimumSize = new System.Drawing.Size(350, 273);
             this.Name = "AddEditContact";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

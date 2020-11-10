@@ -3,7 +3,7 @@
 namespace ContactsApp
 {
     /// <summary>
-    /// Класс «Номер телефона» с полем «Номер».
+    /// Класс со свойствами номера телефона.
     /// </summary>
     public class PhoneNumber
     {

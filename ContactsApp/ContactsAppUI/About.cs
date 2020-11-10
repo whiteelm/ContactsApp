@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContactsAppUI
@@ -20,10 +22,25 @@ namespace ContactsAppUI
         {
             Close();
         }
-
-        private void AboutForm_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Переход на сайт репозитория.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClickGit(object sender, EventArgs e)
         {
-
+            Process.Start("https://github.com/whiteelm/ContactsApp");
+        }
+        /// <summary>
+        /// Отображение информации о копировании емейла
+        /// </summary>
+        private async void MailClick(object sender, EventArgs e)
+        {
+            
+            Clipboard.SetText(MailLabel.Text);
+            InfoLabel.Visible = true;
+            await Task.Delay(4000);
+            InfoLabel.Visible = false;
         }
     }
 }
