@@ -35,7 +35,7 @@ namespace ContactsApp
         /// <param name="filepath">Путь до файла</param>
         public void SaveToFile(Project data, string filepath)
         {
-            if (filepath == null)
+            if (!File.Exists(filepath))
             {
                 Directory.CreateDirectory(PathDirectory());
                 filepath = PathFile();
@@ -54,7 +54,7 @@ namespace ContactsApp
         public static Project LoadFromFile(string filepath)
         {
             Project project;
-            if (!File.Exists(filepath) || filepath == null)
+            if (!File.Exists(filepath))
             {
                 return new Project();
             }
