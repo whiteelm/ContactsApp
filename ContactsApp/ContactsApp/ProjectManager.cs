@@ -14,7 +14,7 @@ namespace ContactsApp
         /// <summary>
         /// Путь по умолчанию по которому сохраняется файл.
         /// </summary>
-        public static string PathFile()
+        public static string FilePath()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\Contacts.json";
@@ -23,26 +23,12 @@ namespace ContactsApp
         /// <summary>
         /// Путь по умолчанию по которому создается папка для файла.
         /// </summary>
-        public static string PathDirectory()
+        public static string DirectoryPath()
         {
             var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return path + @"\ContactsApp\";
         }
 
-        /// <summary>
-        /// Метод сериализации данных.
-        /// </summary>
-        /// <param name="data">Данные для сериализации.</param>
-        /// <param name="filepath">Путь до файла</param>
-        private static void Serializer(Project data, string filepath)
-        {
-            var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter(filepath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, data);
-            }
-        }
         /// <summary>
         /// Метод сохранения данных в файл.
         /// </summary>
@@ -50,21 +36,15 @@ namespace ContactsApp
         /// <param name="filepath">Путь до файла</param>
         public static void SaveToFile(Project data, string filepath)
         {
-            try
+            if (!Directory.Exists(DirectoryPath()))
             {
-                Serializer(data, filepath);
+                Directory.CreateDirectory(DirectoryPath());
             }
-            catch
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter(filepath))
+            using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                try
-                {
-                    Serializer(data, PathFile());
-                }
-                catch
-                {
-                    Directory.CreateDirectory(PathDirectory());
-                    Serializer(data, PathFile());
-                }
+                serializer.Serialize(writer, data);
             }
         }
 

@@ -84,7 +84,7 @@
             this.findTextBox.Location = new System.Drawing.Point(53, 29);
             this.findTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.findTextBox.Name = "findTextBox";
-            this.findTextBox.Size = new System.Drawing.Size(306, 20);
+            this.findTextBox.Size = new System.Drawing.Size(307, 20);
             this.findTextBox.TabIndex = 1;
             this.findTextBox.TextChanged += new System.EventHandler(this.FindTextBoxTextChanged);
             // 
@@ -353,7 +353,7 @@
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(346, 381);
             this.ContactsListBox.TabIndex = 2;
-            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBoxSelectedIndexChanged);
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBoxSelected_IndexChanged);
             // 
             // menuStrip1
             // 
@@ -378,7 +378,7 @@
             // ExitToolStripMenuItem1
             // 
             this.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1";
-            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenuItem1.Text = "Exit";
             this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -455,16 +455,15 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Book Antiqua", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(985, 552);
             this.MinimumSize = new System.Drawing.Size(766, 380);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContactsApp";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormClosed);
-            this.Load += new System.EventHandler(this.MainFormLoad);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFormKeyDown);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_Closed);
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

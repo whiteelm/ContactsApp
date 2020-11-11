@@ -148,7 +148,7 @@ namespace ContactsApp
         /// <summary>
         /// Возвращает и задаёт дату рождения.
         /// </summary>
-        private DateTime _birthDate;
+        private DateTime _birthDate = DateTime.Today;
 
         /// <summary>
         /// Возвращает и задаёт e-mail.

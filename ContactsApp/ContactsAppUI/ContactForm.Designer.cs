@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class AddEditContact
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,7 @@
             this.okButton.TabIndex = 7;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.OkButtonClick);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // cancelButton
             // 
@@ -196,7 +196,7 @@
             this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // birthDatePicker
             // 
@@ -210,7 +210,7 @@
             this.birthDatePicker.TabIndex = 3;
             this.birthDatePicker.Value = new System.DateTime(2020, 10, 27, 0, 0, 0, 0);
             // 
-            // AddEditContact
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -232,11 +232,10 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(600, 273);
             this.MinimumSize = new System.Drawing.Size(350, 273);
-            this.Name = "AddEditContact";
+            this.Name = "ContactForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add Contact";
-            this.Load += new System.EventHandler(this.AddEditFormLoad);
+            this.Text = "Add/Edit Contact";
             this.ResumeLayout(false);
             this.PerformLayout();
 
