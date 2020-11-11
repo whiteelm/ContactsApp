@@ -31,7 +31,7 @@ namespace ContactsApp
                     throw new ArgumentException("Surname is not entered");
                 }
                 _surname = LettersRegister(value);
-                }
+            }
         }
 
         /// <summary>
@@ -67,12 +67,9 @@ namespace ContactsApp
             {
                 if (value.Length > 50)
                 {
-                    _email = value;
-                }
-                else
-                {
                     throw new ArgumentException("e-mail must not exceed 50 characters");
                 }
+                _email = value;
             }
         }
 
@@ -87,12 +84,9 @@ namespace ContactsApp
             {
                 if (value.Length > 30)
                 {
-                    _idVk = value;
+                    throw new ArgumentException("ID_vk must not exceed 30 characters");
                 }
-                else
-                {
-                    throw new ArgumentException("ID_vk must not exceed 50 characters");
-                }
+                _idVk = value;
             }
         }
 
@@ -105,14 +99,11 @@ namespace ContactsApp
             get => _birthDate;
             set
             {
-                if (value < DateTime.Now && value.Year > 1900)
-                {
-                    _birthDate = value;
-                }
-                else
+                if (value >= DateTime.Now || value.Year <= 1900)
                 {
                     throw new ArgumentException("Date of birth cannot be more than the current date and cannot be less than 1900");
                 }
+                _birthDate = value;
             }
         }
 
@@ -132,14 +123,14 @@ namespace ContactsApp
         /// <returns>Вовзвращает копию класса Contact.</returns>
         public object Clone()
         {
-            var phoneNumber = new PhoneNumber { Number = this.PhoneNumber.Number };
+            var phoneNumber = new PhoneNumber { Number = PhoneNumber.Number };
             return new Contact
             {
-                Surname = this.Surname,
-                Name = this.Name,
-                BirthDate = this.BirthDate,
-                Email = this.Email,
-                IdVk = this.IdVk,
+                Surname = Surname,
+                Name = Name,
+                BirthDate = BirthDate,
+                Email = Email,
+                IdVk = IdVk,
                 PhoneNumber = phoneNumber
             };
         }

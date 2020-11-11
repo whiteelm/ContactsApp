@@ -30,6 +30,20 @@ namespace ContactsApp
         }
 
         /// <summary>
+        /// Метод сериализации данных.
+        /// </summary>
+        /// <param name="data">Данные для сериализации.</param>
+        /// <param name="filepath">Путь до файла</param>
+        private static void Serializer(Project data, string filepath)
+        {
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter(filepath))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, data);
+            }
+        }
+        /// <summary>
         /// Метод сохранения данных в файл.
         /// </summary>
         /// <param name="data">Данные для сериализации.</param>
@@ -38,34 +52,18 @@ namespace ContactsApp
         {
             try
             {
-                var serializer = new JsonSerializer();
-                using (var sw = new StreamWriter(filepath))
-                using (JsonWriter writer = new JsonTextWriter(sw))
-                {
-                    serializer.Serialize(writer, data);
-                }
+                Serializer(data, filepath);
             }
             catch
             {
-                filepath = PathFile();
                 try
                 {
-                    var serializer = new JsonSerializer();
-                    using (var sw = new StreamWriter(filepath))
-                    using (JsonWriter writer = new JsonTextWriter(sw))
-                    {
-                        serializer.Serialize(writer, data);
-                    }
+                    Serializer(data, PathFile());
                 }
                 catch
                 {
                     Directory.CreateDirectory(PathDirectory());
-                    var serializer = new JsonSerializer();
-                    using (var sw = new StreamWriter(filepath))
-                    using (JsonWriter writer = new JsonTextWriter(sw))
-                    {
-                        serializer.Serialize(writer, data);
-                    }
+                    Serializer(data, PathFile());
                 }
             }
         }
@@ -84,7 +82,7 @@ namespace ContactsApp
             var serializer = new JsonSerializer();
             try
             {
-                using (StreamReader sr = new StreamReader(filepath))
+                using (var sr = new StreamReader(filepath))
                 using (JsonReader reader = new JsonTextReader(sr))
                     project = serializer.Deserialize<Project>(reader);
             }

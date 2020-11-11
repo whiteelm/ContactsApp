@@ -167,6 +167,11 @@ namespace ContactsAppUI
         /// </summary>
         private static void Checker(Control textBox, string pattern)
         {
+            if (textBox.Text == "")
+            {
+                textBox.BackColor = Color.White;
+                return;
+            }
             textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.LightCoral : Color.White;
         }
     }

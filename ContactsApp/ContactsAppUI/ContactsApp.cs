@@ -143,7 +143,7 @@ namespace ContactsAppUI
             {
                 var selectedIndex = ContactsListBox.SelectedIndex;
                 var result = MessageBox.Show($@"Do you really want to delete this contact: {_project.Contacts[selectedIndex].Surname}",
-                    @"Сonfirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                    @"Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (result != DialogResult.OK) return;
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
@@ -193,14 +193,6 @@ namespace ContactsAppUI
         }
 
         /// <summary>
-        /// Сохранение при выходе из программы.
-        /// </summary>
-        private void MainFormFormClosing(object sender, FormClosingEventArgs e)
-        {
-            ProjectManager.SaveToFile(_project, FilePath());
-        }
-
-        /// <summary>
         /// Поиск через текстбокс.
         /// </summary>
         private void FindTextBoxTextChanged(object sender, EventArgs e)
@@ -216,12 +208,20 @@ namespace ContactsAppUI
         /// <summary>
         /// Вызов окна About по горячей клавише F1.
         /// </summary>
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        private void MainFormKeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
             {
                 AboutToolStripMenuItemClick(sender, e);
             }
+        }
+
+        /// <summary>
+        /// Сохранение при выходе из программы.
+        /// </summary>
+        private void MainFormClosed(object sender, FormClosedEventArgs e)
+        {
+            ProjectManager.SaveToFile(_project, FilePath());
         }
     }
 }
