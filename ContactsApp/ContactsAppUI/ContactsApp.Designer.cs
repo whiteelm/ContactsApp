@@ -165,7 +165,7 @@
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.ReadOnly = true;
             this.surnameTextBox.Size = new System.Drawing.Size(376, 20);
-            this.surnameTextBox.TabIndex = 9;
+            this.surnameTextBox.TabIndex = 6;
             // 
             // nameTextBox
             // 
@@ -178,7 +178,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(376, 20);
-            this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.TabIndex = 7;
             // 
             // phoneTextBox
             // 
@@ -191,7 +191,7 @@
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.ReadOnly = true;
             this.phoneTextBox.Size = new System.Drawing.Size(376, 20);
-            this.phoneTextBox.TabIndex = 12;
+            this.phoneTextBox.TabIndex = 9;
             // 
             // emailTextBox
             // 
@@ -204,7 +204,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.ReadOnly = true;
             this.emailTextBox.Size = new System.Drawing.Size(376, 20);
-            this.emailTextBox.TabIndex = 13;
+            this.emailTextBox.TabIndex = 10;
             // 
             // idVkTextBox
             // 
@@ -217,7 +217,7 @@
             this.idVkTextBox.Name = "idVkTextBox";
             this.idVkTextBox.ReadOnly = true;
             this.idVkTextBox.Size = new System.Drawing.Size(376, 20);
-            this.idVkTextBox.TabIndex = 14;
+            this.idVkTextBox.TabIndex = 11;
             // 
             // fileToolStripMenuItem
             // 
@@ -289,7 +289,7 @@
             this.birthDateBox.Name = "birthDateBox";
             this.birthDateBox.ReadOnly = true;
             this.birthDateBox.Size = new System.Drawing.Size(67, 20);
-            this.birthDateBox.TabIndex = 21;
+            this.birthDateBox.TabIndex = 8;
             // 
             // deleteButton
             // 
@@ -304,7 +304,7 @@
             this.deleteButton.Margin = new System.Windows.Forms.Padding(5);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(30, 30);
-            this.deleteButton.TabIndex = 17;
+            this.deleteButton.TabIndex = 5;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
             // 
@@ -321,7 +321,7 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(5);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(30, 30);
-            this.editButton.TabIndex = 16;
+            this.editButton.TabIndex = 4;
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.EditButtonClick);
             // 
@@ -338,7 +338,7 @@
             this.addButton.Margin = new System.Windows.Forms.Padding(5);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(30, 30);
-            this.addButton.TabIndex = 15;
+            this.addButton.TabIndex = 3;
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.AddButtonClick);
             // 
@@ -352,7 +352,7 @@
             this.ContactsListBox.Margin = new System.Windows.Forms.Padding(5);
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(346, 381);
-            this.ContactsListBox.TabIndex = 19;
+            this.ContactsListBox.TabIndex = 2;
             this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBoxSelectedIndexChanged);
             // 
             // menuStrip1
@@ -378,7 +378,7 @@
             // ExitToolStripMenuItem1
             // 
             this.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1";
-            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+            this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenuItem1.Text = "Exit";
             this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 

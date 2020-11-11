@@ -54,7 +54,7 @@
             this.idVkTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.idVkTextBox.Name = "idVkTextBox";
             this.idVkTextBox.Size = new System.Drawing.Size(381, 20);
-            this.idVkTextBox.TabIndex = 32;
+            this.idVkTextBox.TabIndex = 6;
             this.idVkTextBox.Leave += new System.EventHandler(this.IdVkCheck);
             // 
             // emailTextBox
@@ -67,7 +67,7 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(381, 20);
-            this.emailTextBox.TabIndex = 31;
+            this.emailTextBox.TabIndex = 5;
             this.emailTextBox.Leave += new System.EventHandler(this.EmailCheck);
             // 
             // phoneTextBox
@@ -80,7 +80,7 @@
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(381, 20);
-            this.phoneTextBox.TabIndex = 30;
+            this.phoneTextBox.TabIndex = 4;
             this.phoneTextBox.Leave += new System.EventHandler(this.PhoneCheck);
             // 
             // nameTextBox
@@ -93,7 +93,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(381, 20);
-            this.nameTextBox.TabIndex = 29;
+            this.nameTextBox.TabIndex = 2;
             this.nameTextBox.Leave += new System.EventHandler(this.NameCheck);
             // 
             // surnameTextBox
@@ -106,7 +106,7 @@
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(381, 20);
-            this.surnameTextBox.TabIndex = 28;
+            this.surnameTextBox.TabIndex = 1;
             this.surnameTextBox.Leave += new System.EventHandler(this.SurnameCheck);
             // 
             // idVkLabel
@@ -182,19 +182,18 @@
             this.okButton.Margin = new System.Windows.Forms.Padding(5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 34;
+            this.okButton.TabIndex = 7;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.OkButtonClick);
             // 
             // cancelButton
             // 
-            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelButton.Location = new System.Drawing.Point(382, 194);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(5);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 35;
+            this.cancelButton.TabIndex = 8;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButtonClick);
@@ -208,7 +207,7 @@
             this.birthDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthDatePicker.Name = "birthDatePicker";
             this.birthDatePicker.Size = new System.Drawing.Size(95, 20);
-            this.birthDatePicker.TabIndex = 36;
+            this.birthDatePicker.TabIndex = 3;
             this.birthDatePicker.Value = new System.DateTime(2020, 10, 27, 0, 0, 0, 0);
             // 
             // AddEditContact
