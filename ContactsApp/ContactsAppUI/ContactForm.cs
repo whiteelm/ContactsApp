@@ -135,7 +135,7 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
         /// <summary>
         /// Паттерн айди вк. Ввод латинских букв и возможность ввода _ между словами.
         /// </summary>
-        private const string RegexIdVK = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
+        private const string RegexIdVk = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
 
         /// <summary>
         /// Проверка фамилии на ввод по патерну.
@@ -178,12 +178,12 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
         /// </summary>
         private void IdVkCheck(object sender, EventArgs e)
         {
-            const string pattern = RegexIdVK;
+            const string pattern = RegexIdVk;
             CheckRegex(idVkTextBox, pattern);
         }
 
         /// <summary>
-        /// Проверка текстбокса по паттерну по патерну.
+        /// Проверка текстбокса по паттерну.
         /// </summary>
         private static void CheckRegex(Control textBox, string pattern)
         {
@@ -193,6 +193,11 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
                 return;
             }
             textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.LightCoral : Color.White;
+        }
+
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

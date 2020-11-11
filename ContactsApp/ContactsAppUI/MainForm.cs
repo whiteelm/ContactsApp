@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using ContactsApp;
 
@@ -32,124 +32,34 @@ namespace ContactsAppUI
         {
             _project = ProjectManager.LoadFromFile(_filePath);
             if (_project.Contacts.Count == 0) return;
-            SortContacts(_project);
+            _project.Contacts = Project.SortContacts(_project.Contacts);
+            UpdateContactsList(_project.Contacts);
         }
 
         /// <summary>
         /// Вывод данных контакта на главную форму.
         /// </summary>
-        private void ContactsListBoxSelected_IndexChanged(object sender, EventArgs e)
+        private void ContactsView(IReadOnlyList<Contact> contactsToView)
         {
             var index = ContactsListBox.SelectedIndex;
             if (index < 0)
             {
                 return;
             }
-            surnameTextBox.Text = _project.Contacts[index].Surname;
-            nameTextBox.Text = _project.Contacts[index].Name;
-            phoneTextBox.Text = $@"+{_project.Contacts[index].PhoneNumber.Number}";
-            emailTextBox.Text = _project.Contacts[index].Email;
-            idVkTextBox.Text = _project.Contacts[index].IdVk;
-            birthDateBox.Text = _project.Contacts[index].BirthDate.ToString("dd.MM.yyyy");
-        }
+            surnameTextBox.Text = contactsToView[index].Surname;
+            nameTextBox.Text = contactsToView[index].Name;
+            phoneTextBox.Text = $@"+{contactsToView[index].PhoneNumber.Number}";
+            emailTextBox.Text = contactsToView[index].Email;
+            idVkTextBox.Text = contactsToView[index].IdVk;
+            birthDateBox.Text = contactsToView[index].BirthDate.ToString("dd.MM.yyyy");
 
-        /// <summary>
-        /// Добавление контакта по нажатию кнопки add.
-        /// </summary>
-        private void AddButtonClick(object sender, EventArgs e)
-        {
-            AddContact();
-        }
-
-        /// <summary>
-        /// Редактирование контакта по нажатию кнопки edit.
-        /// </summary>
-        private void EditButtonClick(object sender, EventArgs e)
-        {
-            EditContact();
-        }
-
-        /// <summary>
-        /// Удаление контакта по нажатию кнопки remove.
-        /// </summary>
-        private void DeleteButtonClick(object sender, EventArgs e)
-        {
-            DeleteContact();
-        }
-
-
-        /// <summary>
-        /// Поиск через текстбокс.
-        /// </summary>
-        private void FindTextBoxTextChanged(object sender, EventArgs e)
-        {
-            FoundContact();
-        }
-
-        /// <summary>
-        /// Добавление контакта через меню.
-        /// </summary>
-        private void AddToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            AddContact();
-        }
-
-        /// <summary>
-        /// Редактирование контакта через меню.
-        /// </summary>
-        private void EditContactToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            EditContact();
-        }
-
-        /// <summary>
-        /// Удаление контакта через меню.
-        /// </summary>
-        private void RemoveContactToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            DeleteContact();
-        }
-
-        /// <summary>
-        /// Вызов окна About.
-        /// </summary>
-        private void AboutToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            ShowAboutForm();
-        }
-
-        /// <summary>
-        /// Выход через меню.
-        /// </summary>
-        private void ExitToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        /// <summary>
-        /// Вызов окна About по горячей клавише F1.
-        /// </summary>
-        private void MainForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                AboutToolStripMenuItemClick(sender, e);
-            }
-        }
-
-        /// <summary>
-        /// Сохранение при выходе из программы.
-        /// </summary>
-        private void MainForm_Closed(object sender, FormClosedEventArgs e)
-        {
-            ProjectManager.SaveToFile(_project, _filePath);
         }
         /// <summary>
         /// Добавление контакта.
         /// </summary>
         private void AddContact()
         {
-            var newContact = new Contact {PhoneNumber = new PhoneNumber()};
+            var newContact = new Contact { PhoneNumber = new PhoneNumber() };
             var addedContactForm = new ContactForm { TempContact = newContact };
             var dialogResult = addedContactForm.ShowDialog();
             if (dialogResult != DialogResult.OK)
@@ -158,17 +68,11 @@ namespace ContactsAppUI
             }
             _project.Contacts.Add(addedContactForm.TempContact);
             ContactsListBox.Items.Add(addedContactForm.TempContact);
+            _project.Contacts = Project.SortContacts(_project.Contacts);
             ProjectManager.SaveToFile(_project, _filePath);
-            ContactsListBox.SelectedIndex = 0;
-            if (findTextBox.Text != "")
-            {
-                FoundContact();
-            }
-            else
-            {
-                SortContacts(_project);
-            }
+            FindContact();
         }
+        
 
         /// <summary>
         /// Редактирование контакта.
@@ -184,27 +88,22 @@ namespace ContactsAppUI
             {
                 var selectedIndex = ContactsListBox.SelectedIndex;
                 var selectedContact = _project.Contacts[selectedIndex];
+
                 var updatedContact = new ContactForm { TempContact = selectedContact };
                 var dialogResult = updatedContact.ShowDialog();
-                if (dialogResult != DialogResult.Cancel)
+                if (dialogResult != DialogResult.OK)
                 {
                     return;
                 }
+
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
                 _project.Contacts.Insert(selectedIndex, updatedContact.TempContact);
-                ContactsListBox.Items.Insert(selectedIndex, _project.Contacts[selectedIndex].Surname);
+                ContactsListBox.Items.Insert(selectedIndex, updatedContact.TempContact.Surname);
                 ContactsListBox.SelectedIndex = selectedIndex;
-                SortContacts(_project);
+                _project.Contacts = Project.SortContacts(_project.Contacts);
                 ProjectManager.SaveToFile(_project, _filePath);
-                if (findTextBox.Text != "")
-                {
-                    FoundContact();
-                }
-                else
-                {
-                    SortContacts(_project);
-                }
+                UpdateContactsList(_project.Contacts);
             }
         }
 
@@ -230,40 +129,138 @@ namespace ContactsAppUI
                 }
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
-                ContactsListBox.SelectedIndex = 0;
                 ProjectManager.SaveToFile(_project, _filePath);
+                if (ContactsListBox.Items.Count > 0)
+                {
+                    ContactsListBox.SelectedIndex = 0;
+                }
             }
         }
 
         /// <summary>
         /// Поиск контакта.
         /// </summary>
-        private void FoundContact()
+        private void FindContact()
         {
-            var foundContact = _project.Contacts.Where(contact =>
-                contact.Surname.StartsWith(findTextBox.Text, StringComparison.OrdinalIgnoreCase));
-            var findProject = new Project();
-            foreach (var contact in foundContact)
-            {
-                findProject.Contacts.Add(contact);
-            }
-            SortContacts(findProject);
+            UpdateContactsList(Project.SortContacts(findTextBox.Text, _project));
         }
 
         /// <summary>
         /// Сортировка контактов.
         /// </summary>
-        private void SortContacts(Project sortProject)
+        private void UpdateContactsList(IEnumerable<Contact> projectToList)
         {
             ContactsListBox.Items.Clear();
-            var sortedUsers = from u in sortProject.Contacts orderby u.Surname select u;
-            sortProject.Contacts = sortedUsers.ToList();
-            foreach (var t in sortProject.Contacts)
+            foreach (var t in projectToList)
             {
                 ContactsListBox.Items.Add(t.Surname);
             }
+            if (ContactsListBox.Items.Count > 0)
+            {
+                ContactsListBox.SelectedIndex = 0;
+            }
         }
 
+        /// <summary>
+        /// Добавление контакта по нажатию кнопки add.
+        /// </summary>
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+
+        /// <summary>
+        /// Редактирование контакта по нажатию кнопки edit.
+        /// </summary>
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        /// <summary>
+        /// Удаление контакта по нажатию кнопки remove.
+        /// </summary>
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteContact();
+        }
+
+
+        /// <summary>
+        /// Поиск через текстбокс.
+        /// </summary>
+        private void FindTextBoxText_Changed(object sender, EventArgs e)
+        {
+            FindContact();
+        }
+
+        /// <summary>
+        /// Добавление контакта через меню.
+        /// </summary>
+        private void AddToolStripMenu_ItemClick(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+
+        /// <summary>
+        /// Редактирование контакта через меню.
+        /// </summary>
+        private void EditContactToolStripMenu_ItemClick(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        /// <summary>
+        /// Удаление контакта через меню.
+        /// </summary>
+        private void RemoveContactToolStripMenu_ItemClick(object sender, EventArgs e)
+        {
+            DeleteContact();
+        }
+
+        /// <summary>
+        /// Вызов окна About.
+        /// </summary>
+        private void AboutToolStripMenu_ItemClick(object sender, EventArgs e)
+        {
+            ShowAboutForm();
+        }
+
+        /// <summary>
+        /// Выход через меню.
+        /// </summary>
+        private void ExitToolStripMenu_ItemClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// Вызов окна About по горячей клавише F1.
+        /// </summary>
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                ShowAboutForm();
+            }
+        }
+
+        /// <summary>
+        /// Вывод данных контакта на главную форму.
+        /// </summary>
+        private void ContactsListBoxSelected_IndexChanged(object sender, EventArgs e)
+        {
+            ContactsView(Project.SortContacts(findTextBox.Text, _project));
+        }
+
+        /// <summary>
+        /// Сохранение при выходе из программы.
+        /// </summary>
+        private void MainForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            ProjectManager.SaveToFile(_project, _filePath);
+        }
+        
         /// <summary>
         /// Вызов окна About.
         /// </summary>

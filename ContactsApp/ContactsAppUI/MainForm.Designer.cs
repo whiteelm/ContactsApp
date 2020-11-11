@@ -71,7 +71,7 @@
             // 
             this.findLabel.AutoSize = true;
             this.findLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findLabel.Location = new System.Drawing.Point(14, 32);
+            this.findLabel.Location = new System.Drawing.Point(11, 32);
             this.findLabel.Margin = new System.Windows.Forms.Padding(5);
             this.findLabel.Name = "findLabel";
             this.findLabel.Size = new System.Drawing.Size(30, 13);
@@ -81,12 +81,12 @@
             // findTextBox
             // 
             this.findTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.findTextBox.Location = new System.Drawing.Point(53, 29);
+            this.findTextBox.Location = new System.Drawing.Point(51, 29);
             this.findTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.findTextBox.Name = "findTextBox";
-            this.findTextBox.Size = new System.Drawing.Size(307, 20);
+            this.findTextBox.Size = new System.Drawing.Size(309, 20);
             this.findTextBox.TabIndex = 1;
-            this.findTextBox.TextChanged += new System.EventHandler(this.FindTextBoxTextChanged);
+            this.findTextBox.TextChanged += new System.EventHandler(this.FindTextBoxText_Changed);
             // 
             // surnameLabel
             // 
@@ -232,7 +232,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenu_ItemClick);
             // 
             // editToolStripMenuItem
             // 
@@ -249,21 +249,21 @@
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.addToolStripMenuItem.Text = "Add Contact";
-            this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItemClick);
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenu_ItemClick);
             // 
             // editContactToolStripMenuItem
             // 
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
             this.editContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
-            this.editContactToolStripMenuItem.Click += new System.EventHandler(this.EditContactToolStripMenuItemClick);
+            this.editContactToolStripMenuItem.Click += new System.EventHandler(this.EditContactToolStripMenu_ItemClick);
             // 
             // removeContactToolStripMenuItem
             // 
             this.removeContactToolStripMenuItem.Name = "removeContactToolStripMenuItem";
             this.removeContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.removeContactToolStripMenuItem.Text = "Remove Contact";
-            this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenuItemClick);
+            this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenu_ItemClick);
             // 
             // helpToolStripMenuItem
             // 
@@ -278,7 +278,7 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenu_ItemClick);
             // 
             // birthDateBox
             // 
@@ -306,7 +306,7 @@
             this.deleteButton.Size = new System.Drawing.Size(30, 30);
             this.deleteButton.TabIndex = 5;
             this.deleteButton.UseVisualStyleBackColor = false;
-            this.deleteButton.Click += new System.EventHandler(this.DeleteButtonClick);
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // editButton
             // 
@@ -323,7 +323,7 @@
             this.editButton.Size = new System.Drawing.Size(30, 30);
             this.editButton.TabIndex = 4;
             this.editButton.UseVisualStyleBackColor = false;
-            this.editButton.Click += new System.EventHandler(this.EditButtonClick);
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // addButton
             // 
@@ -340,7 +340,7 @@
             this.addButton.Size = new System.Drawing.Size(30, 30);
             this.addButton.TabIndex = 3;
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.AddButtonClick);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // ContactsListBox
             // 
@@ -380,7 +380,7 @@
             this.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1";
             this.ExitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
             this.ExitToolStripMenuItem1.Text = "Exit";
-            this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+            this.ExitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenu_ItemClick);
             // 
             // editToolStripMenuItem1
             // 
@@ -397,21 +397,21 @@
             this.addToolStripMenuItem1.Name = "addToolStripMenuItem1";
             this.addToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.addToolStripMenuItem1.Text = "Add Contact";
-            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenuItemClick);
+            this.addToolStripMenuItem1.Click += new System.EventHandler(this.AddToolStripMenu_ItemClick);
             // 
             // editContactToolStripMenuItem1
             // 
             this.editContactToolStripMenuItem1.Name = "editContactToolStripMenuItem1";
             this.editContactToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.editContactToolStripMenuItem1.Text = "Edit Contact";
-            this.editContactToolStripMenuItem1.Click += new System.EventHandler(this.EditContactToolStripMenuItemClick);
+            this.editContactToolStripMenuItem1.Click += new System.EventHandler(this.EditContactToolStripMenu_ItemClick);
             // 
             // deleteContactToolStripMenuItem
             // 
             this.deleteContactToolStripMenuItem.Name = "deleteContactToolStripMenuItem";
             this.deleteContactToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteContactToolStripMenuItem.Text = "Delete Contact";
-            this.deleteContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenuItemClick);
+            this.deleteContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenu_ItemClick);
             // 
             // aboutToolStripMenuItem1
             // 
@@ -426,7 +426,7 @@
             this.aboutToolStripMenuItem2.Name = "aboutToolStripMenuItem2";
             this.aboutToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem2.Text = "About";
-            this.aboutToolStripMenuItem2.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
+            this.aboutToolStripMenuItem2.Click += new System.EventHandler(this.AboutToolStripMenu_ItemClick);
             // 
             // MainForm
             // 
