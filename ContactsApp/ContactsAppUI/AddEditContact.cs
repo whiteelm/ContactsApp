@@ -95,18 +95,6 @@ namespace ContactsAppUI
         /// </summary>
         public void CheckEmptyCorrect()
         {
-            if (surnameTextBox.Text == "")
-            {
-                throw new ArgumentException(message: "Surname is not entered!");
-            }
-            if (nameTextBox.Text == "")
-            {
-                throw new ArgumentException(message: "Name is not entered!");
-            }
-            if (phoneTextBox.Text == "")
-            {
-                throw new ArgumentException(message: "Phone number is not entered!");
-            }
             if (surnameTextBox.BackColor == Color.LightCoral)
             {
                 throw new ArgumentException(message: "Surname is not correct!");
@@ -173,6 +161,7 @@ namespace ContactsAppUI
             const string pattern = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
             Checker(idVkTextBox, pattern);
         }
+
         /// <summary>
         /// Проверка текстбокса по паттерну.
         /// </summary>

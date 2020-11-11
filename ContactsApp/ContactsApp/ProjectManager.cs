@@ -8,8 +8,9 @@ namespace ContactsApp
     /// Класс реализует метод для сохранения объекта «Проект» в файл и метод загрузки проекта из файла.
     /// Сохранение и загрузка осуществляются в один и тот же файл.
     /// </summary>
-    public class ProjectManager
+    public static class ProjectManager
     {
+
         /// <summary>
         /// Путь по умолчанию по которому сохраняется файл.
         /// </summary>
@@ -29,7 +30,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Метод сериализации данных.
+        /// Метод сохранения данных в файл.
         /// </summary>
         /// <param name="data">Данные для сериализации.</param>
         /// <param name="filepath">Путь до файла</param>
@@ -70,8 +71,9 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Метод сериализации данных.
+        /// Метод загрузки данных из файла.
         /// </summary>
+        /// /// <param name="filepath">Путь до файла</param>
         public static Project LoadFromFile(string filepath)
         {
             Project project;

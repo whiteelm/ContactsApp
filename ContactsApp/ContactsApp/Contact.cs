@@ -8,31 +8,6 @@ namespace ContactsApp
     public class Contact : ICloneable
     {
         /// <summary>
-        /// Возвращает и задаёт фамилию.
-        /// </summary>
-        private string _surname;
-
-        /// <summary>
-        /// Возвращает и задаёт имя.
-        /// </summary>
-        private string _name;
-
-        /// <summary>
-        /// Возвращает и задаёт дату рождения.
-        /// </summary>
-        private DateTime _birthDate;
-
-        /// <summary>
-        /// Возвращает и задаёт e-mail.
-        /// </summary>
-        private string _email;
-
-        /// <summary>
-        /// Возвращает и задаёт ID личной страницы Вконтакте.
-        /// </summary>
-        private string _idVk;
-
-        /// <summary>
         /// Возвращает и задаёт номер телефона.
         /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
@@ -46,15 +21,17 @@ namespace ContactsApp
             get => _surname;
             set
             {
-                if (CheckLength(value, 50))
-                {
-                    _surname = LettersСase(value);
-                }
-                else
+                if (value.Length > 50)
                 {
                     throw new ArgumentException("Surname must not exceed 50 characters");
                 }
-            }
+
+                if (value.Length == 0)
+                {
+                    throw new ArgumentException("Surname is not entered");
+                }
+                _surname = LettersRegister(value);
+                }
         }
 
         /// <summary>
@@ -66,14 +43,16 @@ namespace ContactsApp
             get => _name;
             set
             {
-                if (CheckLength(value, 50))
+                if (value.Length > 50)
                 {
-                    _name = LettersСase(value);
+                    throw new ArgumentException("Surname must not exceed 50 characters");
                 }
-                else
+
+                if (value.Length == 0)
                 {
-                    throw new ArgumentException("Name must not exceed 50 characters");
+                    throw new ArgumentException("Name is not entered");
                 }
+                _name = LettersRegister(value);
             }
         }
 
@@ -86,7 +65,7 @@ namespace ContactsApp
             get => _email;
             set
             {
-                if (CheckLength(value, 50))
+                if (value.Length > 50)
                 {
                     _email = value;
                 }
@@ -106,7 +85,7 @@ namespace ContactsApp
             get => _idVk;
             set
             {
-                if (CheckLength(value, 30))
+                if (value.Length > 30)
                 {
                     _idVk = value;
                 }
@@ -138,24 +117,13 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Метод проверяющий слово на определённую длину.
-        /// </summary>
-        /// <param name="word">Слово которое нужно проверить.</param>
-        /// <param name="n">Слово не должно быть длиннее чем n.</param>
-        /// <returns>Показывает, что слово меньше n.</returns>
-        private bool CheckLength(string word, byte n)
-        {
-            return word.Length < n;
-        }
-
-        /// <summary>
         /// Метод изменяющий первую букву в слове на заглавную.
         /// </summary>
         /// <param name="word">Слово которое нужно изменить.</param>
         /// <returns>Возвращает изименённое слово.</returns>
-        private string LettersСase(string word)
+        public static string LettersRegister(string word)
         {
-            return char.ToUpper(word[0]).ToString() + word.Substring(1);
+            return char.ToUpper(word[0]) + word.Substring(1);
         }
 
         /// <summary>
@@ -175,5 +143,31 @@ namespace ContactsApp
                 PhoneNumber = phoneNumber
             };
         }
+
+        /// <summary>
+        /// Возвращает и задаёт фамилию.
+        /// </summary>
+        private string _surname;
+
+        /// <summary>
+        /// Возвращает и задаёт имя.
+        /// </summary>
+        private string _name;
+
+        /// <summary>
+        /// Возвращает и задаёт дату рождения.
+        /// </summary>
+        private DateTime _birthDate;
+
+        /// <summary>
+        /// Возвращает и задаёт e-mail.
+        /// </summary>
+        private string _email;
+
+        /// <summary>
+        /// Возвращает и задаёт ID личной страницы Вконтакте.
+        /// </summary>
+        private string _idVk;
+
     }
 }
