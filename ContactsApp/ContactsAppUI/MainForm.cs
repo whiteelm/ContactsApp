@@ -146,8 +146,12 @@ namespace ContactsAppUI
         /// </summary>
         private void BirthDaysContacts()
         {
-            birthContactsLabel.Text = "";
             var birthDaysContacts = new Project {Contacts = Project.BirthDayContacts(DateTime.Today, _project)};
+            if (birthDaysContacts.Contacts.Count == 0)
+            {
+                return;
+            }
+            birthContactsLabel.Text = "";
             for (var index = 0; index < birthDaysContacts.Contacts.Count; index++)
             {
                 var contact = birthDaysContacts.Contacts[index];
@@ -155,11 +159,6 @@ namespace ContactsAppUI
                 if (index < birthDaysContacts.Contacts.Count - 1)
                 {
                     birthContactsLabel.Text += @", ";
-                }
-                if (index % 5 == 0 && index > 0)
-                {
-                    birthContactsLabel.Text += @"
-";
                 }
             }
         }

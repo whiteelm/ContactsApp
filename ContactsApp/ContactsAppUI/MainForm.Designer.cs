@@ -65,9 +65,9 @@
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelBirthDayInfo = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.birthContactsLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -439,7 +439,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelBirthDayInfo);
             this.panel1.Controls.Add(this.birthContactsLabel);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(370, 347);
@@ -448,10 +448,21 @@
             this.panel1.Size = new System.Drawing.Size(414, 114);
             this.panel1.TabIndex = 24;
             // 
+            // labelBirthDayInfo
+            // 
+            this.labelBirthDayInfo.AutoSize = true;
+            this.labelBirthDayInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelBirthDayInfo.Location = new System.Drawing.Point(105, 27);
+            this.labelBirthDayInfo.Margin = new System.Windows.Forms.Padding(3);
+            this.labelBirthDayInfo.Name = "labelBirthDayInfo";
+            this.labelBirthDayInfo.Size = new System.Drawing.Size(184, 13);
+            this.labelBirthDayInfo.TabIndex = 27;
+            this.labelBirthDayInfo.Text = "Today is the birthday of these people:";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.BirthPic;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 12);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(90, 90);
@@ -461,25 +472,15 @@
             // 
             // birthContactsLabel
             // 
-            this.birthContactsLabel.AutoSize = true;
+            this.birthContactsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.birthContactsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.birthContactsLabel.Location = new System.Drawing.Point(105, 46);
             this.birthContactsLabel.Margin = new System.Windows.Forms.Padding(3);
             this.birthContactsLabel.Name = "birthContactsLabel";
-            this.birthContactsLabel.Size = new System.Drawing.Size(35, 13);
+            this.birthContactsLabel.Size = new System.Drawing.Size(297, 56);
             this.birthContactsLabel.TabIndex = 26;
-            this.birthContactsLabel.Text = "label1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(105, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 13);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Today is the birthday of these people:";
+            this.birthContactsLabel.Text = "No one";
             // 
             // MainForm
             // 
@@ -511,7 +512,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContactsApp";
@@ -567,8 +568,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelBirthDayInfo;
         private System.Windows.Forms.Label birthContactsLabel;
-        private System.Windows.Forms.Label label1;
     }
 }
 
