@@ -37,6 +37,7 @@ namespace ContactsAppUI
             }
             _project.Contacts = Project.SortContacts(_project.Contacts);
             UpdateContactsList(_project.Contacts);
+            BirthDaysContacts();
         }
 
         /// <summary>
@@ -136,6 +137,29 @@ namespace ContactsAppUI
                 if (ContactsListBox.Items.Count > 0)
                 {
                     ContactsListBox.SelectedIndex = 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Вывод контактов у которых день рождения.
+        /// </summary>
+        private void BirthDaysContacts()
+        {
+            birthContactsLabel.Text = "";
+            var birthDaysContacts = new Project {Contacts = Project.BirthDayContacts(DateTime.Today, _project)};
+            for (var index = 0; index < birthDaysContacts.Contacts.Count; index++)
+            {
+                var contact = birthDaysContacts.Contacts[index];
+                birthContactsLabel.Text += contact.Surname;
+                if (index < birthDaysContacts.Contacts.Count - 1)
+                {
+                    birthContactsLabel.Text += @", ";
+                }
+                if (index % 5 == 0 && index > 0)
+                {
+                    birthContactsLabel.Text += @"
+";
                 }
             }
         }
