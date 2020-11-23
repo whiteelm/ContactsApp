@@ -50,7 +50,7 @@ namespace ContactsAppUI
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult = DialogResult.Cancel;
         }
 
         /// <summary>
@@ -58,14 +58,15 @@ namespace ContactsAppUI
         /// </summary>
         private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (DialogResult != DialogResult.Cancel) return;
             if (surnameTextBox.Text == "" && surnameTextBox.Text == "" && phoneTextBox.Text == "" &&
                 emailTextBox.Text == "" && idVkTextBox.Text == "")
             {
                 return;
             }
-            var dialogResult = MessageBox.Show(@"The entered data will not be saved.",
+            var dialogAnswer = MessageBox.Show(@"The entered data will not be saved.",
                 @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-            if (dialogResult == DialogResult.No)
+            if (dialogAnswer == DialogResult.No)
             {
                 e.Cancel = true;
             }
@@ -90,7 +91,6 @@ namespace ContactsAppUI
                 };
                 TempContact.PhoneNumber = phoneNumber;
                 DialogResult = DialogResult.OK;
-                Close();
             }
             catch (Exception exception)
             {

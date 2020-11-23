@@ -31,7 +31,10 @@ namespace ContactsAppUI
         private void MainForm_Load(object sender, EventArgs e)
         {
             _project = ProjectManager.LoadFromFile(_filePath);
-            if (_project.Contacts.Count == 0) return;
+            if (_project.Contacts.Count == 0)
+            {
+                return;
+            }
             _project.Contacts = Project.SortContacts(_project.Contacts);
             UpdateContactsList(_project.Contacts);
         }
@@ -54,6 +57,7 @@ namespace ContactsAppUI
             birthDateBox.Text = contactsToView[index].BirthDate.ToString("dd.MM.yyyy");
 
         }
+
         /// <summary>
         /// Добавление контакта.
         /// </summary>
@@ -73,7 +77,6 @@ namespace ContactsAppUI
             FindContact();
         }
         
-
         /// <summary>
         /// Редактирование контакта.
         /// </summary>
@@ -121,7 +124,7 @@ namespace ContactsAppUI
             {
                 var selectedIndex = ContactsListBox.SelectedIndex;
                 var result = MessageBox.Show($@"Do you really want to delete this contact: 
-                    {_project.Contacts[selectedIndex].Surname}", @"Confirmation",
+                    {_project.Contacts[selectedIndex].Surname}?", @"Confirmation",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                 if (result != DialogResult.OK)
                 {
@@ -184,8 +187,7 @@ namespace ContactsAppUI
         {
             DeleteContact();
         }
-
-
+        
         /// <summary>
         /// Поиск.
         /// </summary>
