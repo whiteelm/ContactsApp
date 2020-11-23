@@ -236,7 +236,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add/Edit Contact";
-            this.Load += new System.EventHandler(this.ContactForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContactForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

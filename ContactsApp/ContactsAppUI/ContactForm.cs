@@ -25,7 +25,8 @@ namespace ContactsAppUI
                 nameTextBox.Text = value.Name;
                 idVkTextBox.Text = value.IdVk;
                 emailTextBox.Text = value.Email;
-                phoneTextBox.Text = value.PhoneNumber.Number.ToString();
+                if(value.PhoneNumber.Number != 0)
+                    phoneTextBox.Text = value.PhoneNumber.Number.ToString();
                 birthDatePicker.Value = value.BirthDate;
             }
         }
@@ -37,9 +38,43 @@ namespace ContactsAppUI
         }
 
         /// <summary>
-        /// Создание контакта для добавления или редактирования.
+        /// Действие при нажатии кнопки Ok.
         /// </summary>
         private void OkButton_Click(object sender, EventArgs e)
+        {
+            NewContact();
+        }
+
+        /// <summary>
+        /// Действие при нажатии кнопки Cancel.
+        /// </summary>
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// Действие при закрытии формы.
+        /// </summary>
+        private void ContactForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (surnameTextBox.Text == "" && surnameTextBox.Text == "" && phoneTextBox.Text == "" &&
+                emailTextBox.Text == "" && idVkTextBox.Text == "")
+            {
+                return;
+            }
+            var dialogResult = MessageBox.Show(@"The entered data will not be saved.",
+                @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
+        /// Создание контакта для добавления или редактирования.
+        /// </summary>
+        private void NewContact()
         {
             try
             {
@@ -65,28 +100,9 @@ namespace ContactsAppUI
         }
 
         /// <summary>
-        /// Отмена добавления/редактирования контакта.
-        /// </summary>
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            if (surnameTextBox.Text != "" || surnameTextBox.Text != "" || phoneTextBox.Text != ""
-                || emailTextBox.Text != "" || idVkTextBox.Text != "")
-            {
-                var dialogResult = MessageBox.Show(@"The entered data will not be saved.",
-                    @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (dialogResult == DialogResult.No)
-                {
-                    return;
-                }
-            }
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
-
-        /// <summary>
         /// Проверка данных на заполненность и верность заполнения.
         /// </summary>
-        public void CheckCorrect()
+        private void CheckCorrect()
         {
             if (surnameTextBox.BackColor == Color.LightCoral)
             {
@@ -193,11 +209,6 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
                 return;
             }
             textBox.BackColor = !Regex.IsMatch(textBox.Text, pattern) ? Color.LightCoral : Color.White;
-        }
-
-        private void ContactForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

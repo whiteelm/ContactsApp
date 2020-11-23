@@ -101,7 +101,8 @@ namespace ContactsApp
             {
                 if (value >= DateTime.Now || value.Year <= 1900)
                 {
-                    throw new ArgumentException("Date of birth cannot be more than the current date and cannot be less than 1900");
+                    throw new ArgumentException(@"Date of birth cannot be more than 
+the current date and cannot be less than 1900");
                 }
                 _birthDate = value;
             }

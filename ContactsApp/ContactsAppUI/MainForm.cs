@@ -187,7 +187,7 @@ namespace ContactsAppUI
 
 
         /// <summary>
-        /// Поиск через текстбокс.
+        /// Поиск.
         /// </summary>
         private void FindTextBoxText_Changed(object sender, EventArgs e)
         {
