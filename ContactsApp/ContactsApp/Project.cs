@@ -31,10 +31,10 @@ namespace ContactsApp
         /// <param name="substringForSearch"> Строка по которой ведется поиск.</param>
         /// <param name="project"> Список контактов для поиска.</param>
         /// <returns></returns>
-        public static List<Contact> SortContacts(string substringForSearch, Project project)
+        public static Project SortContacts(string substringForSearch, Project project)
         {
             if (substringForSearch == "")
-                return project.Contacts;
+                return project;
             var foundContacts = project.Contacts.Where(contact =>
                 contact.Surname.StartsWith(substringForSearch, StringComparison.OrdinalIgnoreCase) ||
                 contact.Name.StartsWith(substringForSearch, StringComparison.OrdinalIgnoreCase));
@@ -43,8 +43,8 @@ namespace ContactsApp
             {
                 findProject.Contacts.Add(contact);
             }
-            var sortedUsers = SortContacts(findProject.Contacts);
-            return sortedUsers.ToList();
+            findProject.Contacts = SortContacts(findProject.Contacts);
+            return findProject;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace ContactsApp
         /// <param name="date"> Сегодняшний день.</param>
         /// <param name="project"> Контакты для поиска.</param>
         /// <returns></returns>
-        public static List<Contact> BirthDayContacts(DateTime date, Project project)
+        public static List<Contact> BirthDayContactsFind(DateTime date, Project project)
         {
             var foundContacts = project.Contacts.Where(contact => 
                 contact.BirthDate.Month == date.Month && contact.BirthDate.Day == date.Day);
@@ -64,6 +64,21 @@ namespace ContactsApp
             }
             var sortedUsers = SortContacts(birthDayContacts.Contacts);
             return sortedUsers;
+        }
+
+        /// <summary>
+        /// Поиск контакта по id.
+        /// </summary>
+        /// <param name="idForSearch"> id.</param>
+        /// <param name="contacts"> Контакты для поиска.</param>
+        /// <returns></returns>
+        public static int FindContactNumWithId(string idForSearch, List<Contact> contacts)
+        {
+            if (idForSearch == null)
+            {
+                return -1;
+            }
+            return contacts.FindIndex(x => x.IdContact == idForSearch);
         }
     }
 }

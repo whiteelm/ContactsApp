@@ -33,7 +33,7 @@
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.surnameLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.birthdayLabel = new System.Windows.Forms.Label();
+            this.birthDayLabel = new System.Windows.Forms.Label();
             this.phoneLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.idVkLabel = new System.Windows.Forms.Label();
@@ -66,8 +66,8 @@
             this.aboutToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelBirthDayInfo = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.birthContactsLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -116,16 +116,16 @@
             this.nameLabel.TabIndex = 4;
             this.nameLabel.Text = "Name:";
             // 
-            // birthdayLabel
+            // birthDayLabel
             // 
-            this.birthdayLabel.AutoSize = true;
-            this.birthdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.birthdayLabel.Location = new System.Drawing.Point(405, 92);
-            this.birthdayLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.birthdayLabel.Name = "birthdayLabel";
-            this.birthdayLabel.Size = new System.Drawing.Size(48, 13);
-            this.birthdayLabel.TabIndex = 5;
-            this.birthdayLabel.Text = "Birthday:";
+            this.birthDayLabel.AutoSize = true;
+            this.birthDayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.birthDayLabel.Location = new System.Drawing.Point(405, 92);
+            this.birthDayLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.birthDayLabel.Name = "birthDayLabel";
+            this.birthDayLabel.Size = new System.Drawing.Size(48, 13);
+            this.birthDayLabel.TabIndex = 5;
+            this.birthDayLabel.Text = "Birthday:";
             // 
             // phoneLabel
             // 
@@ -459,17 +459,6 @@
             this.labelBirthDayInfo.TabIndex = 27;
             this.labelBirthDayInfo.Text = "Today is the birthday of these people:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.BirthPic;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
             // birthContactsLabel
             // 
             this.birthContactsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -481,6 +470,17 @@
             this.birthContactsLabel.Size = new System.Drawing.Size(297, 56);
             this.birthContactsLabel.TabIndex = 26;
             this.birthContactsLabel.Text = "No one";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.BirthPic;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(90, 90);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
@@ -502,7 +502,7 @@
             this.Controls.Add(this.idVkLabel);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.phoneLabel);
-            this.Controls.Add(this.birthdayLabel);
+            this.Controls.Add(this.birthDayLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.surnameLabel);
             this.Controls.Add(this.findTextBox);
@@ -535,7 +535,7 @@
         private System.Windows.Forms.TextBox findTextBox;
         private System.Windows.Forms.Label surnameLabel;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label birthdayLabel;
+        private System.Windows.Forms.Label birthDayLabel;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label idVkLabel;

@@ -136,12 +136,12 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
         /// <summary>
         /// Паттерн имени и фамилии. Русские буквы и возможность написания тире для двойных имен.
         /// </summary>
-        private const string RegexName = "^[а-яА-Я]+(-[а-яА-Я]+)?$";
+        private const string RegexName = "^[а-яА-Яa-zA-Z]+(-[а-яА-Я]+)?$";
 
         /// <summary>
         /// Паттерн номера телефона где номер начинается с 7 и имеет длину в 11 цифр. 
         /// </summary>
-        private const string RegexPhoneNumber = "^7[0-9]{0,10}$";
+        private const string RegexPhoneNumber = "^7[0-9]{10,10}$";
 
         /// <summary>
         /// Паттерн емейла. Латинские буквы также проверка ввода @ и точки.
@@ -151,7 +151,7 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
         /// <summary>
         /// Паттерн айди вк. Ввод латинских букв и возможность ввода _ между словами.
         /// </summary>
-        private const string RegexIdVk = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
+        private const string RegexIdVk = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)+(_[a-zA-Z0-9]+)?$";
 
         /// <summary>
         /// Проверка фамилии на ввод по патерну.

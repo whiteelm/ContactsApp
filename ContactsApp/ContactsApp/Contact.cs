@@ -11,7 +11,7 @@ namespace ContactsApp
         /// Возвращает и задаёт номер телефона.
         /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
-
+        
         /// <summary>
         /// Свойство фамилии.
         /// Первая буква преобразовывается к верхнему регистру, а также фамилия ограничена 50 символами по длине.
@@ -161,5 +161,9 @@ the current date and cannot be less than 1900");
         /// </summary>
         private string _idVk;
 
+        /// <summary>
+        /// id контакта.
+        /// </summary>
+        public string IdContact { get; set; }
     }
 }
