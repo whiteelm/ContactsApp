@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using ContactsApp;
 
 namespace ContactsApp.UnitTests
 {

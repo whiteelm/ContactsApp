@@ -53,7 +53,7 @@
             this.idVkTextBox.Location = new System.Drawing.Point(76, 164);
             this.idVkTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.idVkTextBox.Name = "idVkTextBox";
-            this.idVkTextBox.Size = new System.Drawing.Size(381, 20);
+            this.idVkTextBox.Size = new System.Drawing.Size(377, 20);
             this.idVkTextBox.TabIndex = 6;
             this.idVkTextBox.Leave += new System.EventHandler(this.IdVkCheck);
             // 
@@ -66,7 +66,7 @@
             this.emailTextBox.Location = new System.Drawing.Point(76, 134);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(381, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(377, 20);
             this.emailTextBox.TabIndex = 5;
             this.emailTextBox.Leave += new System.EventHandler(this.EmailCheck);
             // 
@@ -79,7 +79,7 @@
             this.phoneTextBox.Location = new System.Drawing.Point(76, 104);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(381, 20);
+            this.phoneTextBox.Size = new System.Drawing.Size(377, 20);
             this.phoneTextBox.TabIndex = 4;
             this.phoneTextBox.Leave += new System.EventHandler(this.PhoneCheck);
             // 
@@ -92,7 +92,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(76, 44);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(381, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(377, 20);
             this.nameTextBox.TabIndex = 2;
             this.nameTextBox.Leave += new System.EventHandler(this.NameCheck);
             // 
@@ -105,7 +105,7 @@
             this.surnameTextBox.Location = new System.Drawing.Point(76, 14);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(381, 20);
+            this.surnameTextBox.Size = new System.Drawing.Size(377, 20);
             this.surnameTextBox.TabIndex = 1;
             this.surnameTextBox.Leave += new System.EventHandler(this.SurnameCheck);
             // 
@@ -177,8 +177,8 @@
             // 
             // okButton
             // 
-            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(297, 194);
+            this.okButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.okButton.Location = new System.Drawing.Point(293, 194);
             this.okButton.Margin = new System.Windows.Forms.Padding(5);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
@@ -189,7 +189,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(382, 194);
+            this.cancelButton.Location = new System.Drawing.Point(378, 194);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(5);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
@@ -214,7 +214,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 234);
+            this.ClientSize = new System.Drawing.Size(473, 227);
             this.Controls.Add(this.birthDatePicker);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -229,9 +229,10 @@
             this.Controls.Add(this.birthdayLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.surnameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(600, 273);
-            this.MinimumSize = new System.Drawing.Size(350, 273);
+            this.MaximumSize = new System.Drawing.Size(493, 273);
+            this.MinimumSize = new System.Drawing.Size(493, 266);
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

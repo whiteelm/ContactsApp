@@ -97,7 +97,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label6.Location = new System.Drawing.Point(16, 283);
+            this.label6.Location = new System.Drawing.Point(12, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(271, 273);
+            this.button1.Location = new System.Drawing.Point(199, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 313);
+            this.ClientSize = new System.Drawing.Size(284, 265);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
@@ -150,9 +150,9 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(379, 352);
+            this.MaximumSize = new System.Drawing.Size(300, 300);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(379, 352);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

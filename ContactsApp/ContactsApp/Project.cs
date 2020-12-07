@@ -33,12 +33,15 @@ namespace ContactsApp
         /// <returns></returns>
         public static Project SortContacts(string substringForSearch, Project project)
         {
+            var findProject = new Project();
             if (substringForSearch == "")
-                return project;
+            {
+                findProject = project;
+                return findProject;
+            }
             var foundContacts = project.Contacts.Where(contact =>
                 contact.Surname.StartsWith(substringForSearch, StringComparison.OrdinalIgnoreCase) ||
                 contact.Name.StartsWith(substringForSearch, StringComparison.OrdinalIgnoreCase));
-            var findProject = new Project();
             foreach (var contact in foundContacts)
             {
                 findProject.Contacts.Add(contact);
@@ -64,21 +67,6 @@ namespace ContactsApp
             }
             var sortedUsers = SortContacts(birthDayContacts.Contacts);
             return sortedUsers;
-        }
-
-        /// <summary>
-        /// Поиск контакта по id.
-        /// </summary>
-        /// <param name="idForSearch"> id.</param>
-        /// <param name="contacts"> Контакты для поиска.</param>
-        /// <returns></returns>
-        public static int FindContactNumWithId(string idForSearch, List<Contact> contacts)
-        {
-            if (idForSearch == null)
-            {
-                return -1;
-            }
-            return contacts.FindIndex(x => x.IdContact == idForSearch);
         }
     }
 }

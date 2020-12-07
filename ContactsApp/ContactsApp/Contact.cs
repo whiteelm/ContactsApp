@@ -160,10 +160,5 @@ the current date and cannot be less than 1900");
         /// Возвращает и задаёт ID личной страницы Вконтакте.
         /// </summary>
         private string _idVk;
-
-        /// <summary>
-        /// id контакта.
-        /// </summary>
-        public string IdContact { get; set; }
     }
 }
