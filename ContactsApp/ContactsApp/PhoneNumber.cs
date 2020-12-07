@@ -21,14 +21,15 @@ namespace ContactsApp
             get => _number;
             set
             {
-                if ((value.ToString().Length == 11) && (value.ToString()[0] == '7'))
-                {
-                    _number = value;
-                }
-                else
+                if (value.ToString().Length != 11 || value.ToString()[0] != '7' )
                 {
                     throw new ArgumentException(message: "Phone number must start with 7 and be 11 digits long");
                 }
+                if (value.ToString().Length == 0)
+                {
+                    throw new ArgumentException(message: "Phone number is not entered");
+                }
+                _number = value;
             }
         }
     }

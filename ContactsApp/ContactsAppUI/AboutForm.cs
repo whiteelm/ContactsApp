@@ -8,17 +8,17 @@ namespace ContactsAppUI
     /// <summary>
     /// Класс с интерфейсом окна About.
     /// </summary>
-    public partial class About : Form
+    public partial class AboutForm : Form
     {
 
-        public About()
+        public AboutForm()
         {
             InitializeComponent();
         }
         /// <summary>
         /// Закрытие окна на кнопку.
         /// </summary>
-        private void ButtonCloseClick(object sender, EventArgs e)
+        private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -27,20 +27,17 @@ namespace ContactsAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ClickGit(object sender, EventArgs e)
+        private void Click_Git(object sender, EventArgs e)
         {
             Process.Start("https://github.com/whiteelm/ContactsApp");
         }
+
         /// <summary>
-        /// Отображение информации о копировании емейла
+        /// Переход к мейлу.
         /// </summary>
-        private async void MailClick(object sender, EventArgs e)
+        private void Click_Mail(object sender, EventArgs e)
         {
-            
-            Clipboard.SetText(MailLabel.Text);
-            InfoLabel.Visible = true;
-            await Task.Delay(4000);
-            InfoLabel.Visible = false;
+            Process.Start("mailto://thiswhitenike@gmail.com");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ContactsAppUI
 {
-    partial class About
+    partial class AboutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.InfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +79,7 @@
             this.MailLabel.Size = new System.Drawing.Size(126, 13);
             this.MailLabel.TabIndex = 3;
             this.MailLabel.Text = "thiswhitenike@gmail.com";
-            this.MailLabel.Click += new System.EventHandler(this.MailClick);
+            this.MailLabel.Click += new System.EventHandler(this.Click_Mail);
             // 
             // GitLabel
             // 
@@ -92,13 +91,13 @@
             this.GitLabel.Size = new System.Drawing.Size(210, 13);
             this.GitLabel.TabIndex = 4;
             this.GitLabel.Text = " https://github.com/whiteelm/ContactsApp";
-            this.GitLabel.Click += new System.EventHandler(this.ClickGit);
+            this.GitLabel.Click += new System.EventHandler(this.Click_Git);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label6.Location = new System.Drawing.Point(16, 283);
+            this.label6.Location = new System.Drawing.Point(12, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 5;
@@ -106,13 +105,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(271, 273);
+            this.button1.Location = new System.Drawing.Point(199, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 1;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ButtonCloseClick);
+            this.button1.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // label7
             // 
@@ -134,22 +133,11 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "e-mail for feedback:";
             // 
-            // InfoLabel
-            // 
-            this.InfoLabel.AutoSize = true;
-            this.InfoLabel.Location = new System.Drawing.Point(254, 153);
-            this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(92, 13);
-            this.InfoLabel.TabIndex = 9;
-            this.InfoLabel.Text = "Email was copied!";
-            this.InfoLabel.Visible = false;
-            // 
-            // About
+            // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 313);
-            this.Controls.Add(this.InfoLabel);
+            this.ClientSize = new System.Drawing.Size(284, 265);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
@@ -162,10 +150,10 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(379, 352);
+            this.MaximumSize = new System.Drawing.Size(300, 300);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(379, 352);
-            this.Name = "About";
+            this.MinimumSize = new System.Drawing.Size(300, 300);
+            this.Name = "AboutForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -186,6 +174,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label InfoLabel;
     }
 }
