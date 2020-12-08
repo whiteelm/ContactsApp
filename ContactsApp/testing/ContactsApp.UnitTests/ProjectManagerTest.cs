@@ -7,12 +7,10 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    class ProjectManagerTest
+    internal class ProjectManagerTest
     {
-        [Test]
-        public void SaveToFile_CorrectProject_FileSavedCorrectly()
+        public Project PrepareProject()
         {
-            //Setup
             var sourceProject = new Project();
             var phoneNumber = new PhoneNumber
             {
@@ -45,85 +43,51 @@ namespace ContactsApp.UnitTests
                 Email = "Ahogger@bk.com",
                 PhoneNumber = phoneNumber
             });
+            return sourceProject;
+        }
+
+        [Test]
+        public void SaveToFile_CorrectProject_FileSavedCorrectly()
+        {
+            //Setup
+            var sourceProject = PrepareProject();
 
             var location = Assembly.GetExecutingAssembly().Location;
             var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
-            var actualFileName = testDataFolder + @"\actualProject.json";
-            var expectedFileName = testDataFolder + @"\expectedProject.json";
+            var actualFileName = testDataFolder + @"\actualProject.json"; 
+            var expectedDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
+            var expectedFileName = expectedDataFolder + @"\expectedProject.json";
+            if (Directory.Exists(testDataFolder))
+            {
+                Directory.Delete(testDataFolder, true);
+            }
 
             //Act
             ProjectManager.SaveToFile(sourceProject, actualFileName, testDataFolder);
 
+            var isFileExist = File.Exists(actualFileName);
+            Assert.AreEqual(true, isFileExist);
+
             //Assert
             var actualFileContent = File.ReadAllText(actualFileName);
             var expectedFileContent = File.ReadAllText(expectedFileName);
-            NUnit.Framework.Assert.AreEqual(expectedFileContent, actualFileContent);
+            Assert.AreEqual(expectedFileContent, actualFileContent);
         }
-
-        //[Test]
-        //public void SaveToFile_EmptyProject_FileSavedCorrectly()
-        //{
-        //    //Setup
-        //    var sourceProject = new Project();
-
-        //    var location = Assembly.GetExecutingAssembly().Location;
-        //    var testDataFolder = Path.GetDirectoryName(location) + @"\TestEmptyData";
-        //    var actualFileName = testDataFolder + @"\actualProject.json";
-        //    var expectedFileName = testDataFolder + @"\expectedProject.json";
-
-        //    //Act
-        //    ProjectManager.SaveToFile(sourceProject, actualFileName, testDataFolder);
-
-        //    //Assert
-        //    var actualFileContent = File.ReadAllText(actualFileName);
-        //    var expectedFileContent = File.ReadAllText(expectedFileName);
-        //    Assert.AreEqual(expectedFileContent, actualFileContent);
-        //}
-
-        //[Test]
-        //public void SaveToFile_DirectoryExist_CreateNewDirectory()
-        //{
-        //    //Setup
-        //    var sourceProject = new Project();
-        //    var location = Assembly.GetExecutingAssembly().Location;
-        //    var testDataFolder = Path.GetDirectoryName(location) + @"\DirectoryExistTest";
-        //    var actualFileName = testDataFolder + @"\actualProject.json";
-
-        //    //Act
-        //    ProjectManager.SaveToFile(sourceProject, actualFileName, testDataFolder);
-
-        //    //Assert
-        //    Assert.IsTrue(Directory.Exists(testDataFolder));
-        //}
 
         [Test]
         public void LoadFromFile_CorrectProject_FileLoadedCorrectly()
         {
             //Setup
-            var expectedProject = new Project();
-            var phoneNumber = new PhoneNumber
-            {
-                Number = 79996665544
-            };
-            expectedProject.Contacts.Add(new Contact()
-            {
-                Name = "BName",
-                Surname = "BSurname",
-                BirthDate = DateTime.Parse("03-06-2012"),
-                IdVk = "B434234",
-                Email = "Bhogger@bk.com",
-                PhoneNumber = phoneNumber
-            });
+            var expectedProject = PrepareProject();
+
             var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
-            var testFileName = testDataFolder + @"\actualProject.json";
-            ProjectManager.SaveToFile(expectedProject, testFileName, testDataFolder);
+            var testDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
+            var testFileName = testDataFolder + @"\expectedProject.json";
 
             //Act
             var actualProject = ProjectManager.LoadFromFile(testFileName);
             var expected = JsonConvert.SerializeObject(expectedProject);
             var actual = JsonConvert.SerializeObject(actualProject);
-
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -140,7 +104,7 @@ namespace ContactsApp.UnitTests
             var actualProject = ProjectManager.LoadFromFile(testFileName);
 
             //Assert
-            Assert.IsTrue(actualProject.Contacts.Count == 0);
+            Assert.IsEmpty(actualProject.Contacts);
         }
 
         [Test]
@@ -148,14 +112,14 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
-            var testFileName = testDataFolder + @"\Wrong.json";
+            var testDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
+            var testFileName = testDataFolder + @"\defectiveProject.json";
 
             //Act
             var actualProject = ProjectManager.LoadFromFile(testFileName);
-      
+
             //Assert
-            Assert.IsTrue(actualProject.Contacts.Count == 0);
+            Assert.IsEmpty(actualProject.Contacts);
         }
 
         [Test]
@@ -172,7 +136,7 @@ namespace ContactsApp.UnitTests
         }
 
         [Test]
-        public void DirectoryPath_DirectoryPath_ReturnSameDirectory()
+        public void DirectoryPath_GoodDirectoryPath_ReturnSameDirectory()
         {
             //Setup
             var expectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
