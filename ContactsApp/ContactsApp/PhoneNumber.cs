@@ -25,10 +25,6 @@ namespace ContactsApp
                 {
                     throw new ArgumentException(message: "Phone number must start with 7 and be 11 digits long");
                 }
-                if (value.ToString().Length == 0)
-                {
-                    throw new ArgumentException(message: "Phone number is not entered");
-                }
                 _number = value;
             }
         }

@@ -8,11 +8,6 @@ namespace ContactsApp
     public class Contact : ICloneable
     {
         /// <summary>
-        /// Возвращает и задаёт номер телефона.
-        /// </summary>
-        public PhoneNumber PhoneNumber { get; set; }
-        
-        /// <summary>
         /// Свойство фамилии.
         /// Первая буква преобразовывается к верхнему регистру, а также фамилия ограничена 50 символами по длине.
         /// </summary>
@@ -33,6 +28,11 @@ namespace ContactsApp
                 _surname = LettersRegister(value);
             }
         }
+
+        /// <summary>
+        /// Возвращает и задаёт номер телефона.
+        /// </summary>
+        public PhoneNumber PhoneNumber { get; set; }
 
         /// <summary>
         /// Свойство имени.

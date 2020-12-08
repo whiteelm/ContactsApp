@@ -29,7 +29,10 @@ namespace ContactsAppUI
         /// Путь к файлу.
         /// </summary>
         private readonly string _filePath = ProjectManager.FilePath();
-        
+        /// <summary>
+        /// Путь к папке.
+        /// </summary>
+        private readonly string _directoryPath= ProjectManager.DirectoryPath();
         /// <summary>
         /// Загрузка данных из файла.
         /// </summary>
@@ -43,7 +46,7 @@ namespace ContactsAppUI
             _tempProject = _project;
             UpdateContactsList(null);
             BirthDaysContacts();
-            ProjectManager.SaveToFile(_project, _filePath);
+            ProjectManager.SaveToFile(_project, _filePath, _directoryPath);
         }
 
         /// <summary>
@@ -79,6 +82,7 @@ namespace ContactsAppUI
         /// </summary>
         private void AddContact()
         {
+            var sortContacts = new Project();
             var newContact = new Contact { PhoneNumber = new PhoneNumber() };
             var contactForm = new ContactForm { TempContact = newContact };
             var dialogResult = contactForm.ShowDialog();
@@ -87,9 +91,9 @@ namespace ContactsAppUI
                 return;
             }
             _project.Contacts.Add(contactForm.TempContact);
-            _project.Contacts = Project.SortContacts(_project.Contacts);
+            _project.Contacts = sortContacts.SortContacts(_project.Contacts);
             UpdateContactsList(contactForm.TempContact);
-            ProjectManager.SaveToFile(_project, _filePath);
+            ProjectManager.SaveToFile(_project, _filePath, _directoryPath);
         }
 
         /// <summary>
@@ -104,7 +108,8 @@ namespace ContactsAppUI
             }
             else
             {
-                var projectToList = Project.SortContacts(findTextBox.Text, _project);
+                var sortContacts = new Project();
+                var projectToList = sortContacts.SortContacts(findTextBox.Text, _project);
                 var selectedIndex = ContactsListBox.SelectedIndex;
                 var selectedContact = projectToList.Contacts[selectedIndex];
                 var contactForm = new ContactForm { TempContact = selectedContact };
@@ -116,9 +121,9 @@ namespace ContactsAppUI
                 var index = _project.Contacts.FindIndex(x => x == contactForm.TempContact);
                 _project.Contacts.RemoveAt(index);
                 _project.Contacts.Insert(index, contactForm.TempContact);
-                _project.Contacts = Project.SortContacts(_project.Contacts);
+                _project.Contacts = sortContacts.SortContacts(_project.Contacts);
                 UpdateContactsList(contactForm.TempContact);
-                ProjectManager.SaveToFile(_project, _filePath);
+                ProjectManager.SaveToFile(_project, _filePath, _directoryPath);
             }
         }
 
@@ -144,7 +149,7 @@ namespace ContactsAppUI
                 }
                 _project.Contacts.RemoveAt(selectedIndex);
                 ContactsListBox.Items.RemoveAt(selectedIndex);
-                ProjectManager.SaveToFile(_project, _filePath);
+                ProjectManager.SaveToFile(_project, _filePath, _directoryPath);
                 if (ContactsListBox.Items.Count > 0)
                 {
                     ContactsListBox.SelectedIndex = 0;
@@ -158,8 +163,9 @@ namespace ContactsAppUI
         /// </summary>
         private void BirthDaysContacts()
         {
-            var birthDaysContacts = new Project { Contacts = 
-                Project.BirthDayContactsFind(DateTime.Today, _project) };
+            var birthDayContactsFind = new Project();
+            var birthDaysContacts = new Project { Contacts =
+                birthDayContactsFind.BirthDayContactsFind(DateTime.Today, _project) };
             if (birthDaysContacts.Contacts.Count == 0)
             {
                 return;
@@ -181,7 +187,8 @@ namespace ContactsAppUI
         /// </summary>
         private void UpdateContactsList(Contact contact)
         {
-            var projectToList = Project.SortContacts(findTextBox.Text, _project);
+            var sortContacts = new Project();
+            var projectToList = sortContacts.SortContacts(findTextBox.Text, _project);
             var index = projectToList.Contacts.FindIndex(x => x == contact);
             ContactsListBox.Items.Clear();
             foreach (var t in projectToList.Contacts)
@@ -296,7 +303,8 @@ namespace ContactsAppUI
         /// </summary>
         private void ContactsListBoxSelected_IndexChanged(object sender, EventArgs e)
         {
-            ContactsView(Project.SortContacts(findTextBox.Text, _project).Contacts);
+            var sortContacts = new Project();
+            ContactsView(sortContacts.SortContacts(findTextBox.Text, _project).Contacts);
         }
 
         /// <summary>
@@ -304,7 +312,7 @@ namespace ContactsAppUI
         /// </summary>
         private void MainForm_Closed(object sender, FormClosedEventArgs e)
         {
-            ProjectManager.SaveToFile(_project, _filePath);
+            ProjectManager.SaveToFile(_project, _filePath, _directoryPath);
         }
 
         /// <summary>

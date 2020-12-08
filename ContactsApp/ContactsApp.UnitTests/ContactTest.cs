@@ -3,23 +3,25 @@ using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
 {
+    //using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+
+    [TestFixture]
     public class ContactTest
     {
-        private Contact _contact;
-        [SetUp]
-        public void InitContact()
+        [Test]
+        public void Name_GoodName_ReturnsSameName()
         {
-            _contact = new Contact();
-        }
-        [TestCase("", "Должно возникать исключение, если фамилия - пустая строка",
-            TestName = "Присвоение пустой строки в качестве фамилии")]
-        [TestCase("Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов-Смирнов", "Должно возникать исключение, если фамилия длиннее 50 символов",
-            TestName = "Присвоение неправильной фамилии больше 50 символов")]
-        public void TestSurnameSet_ArgumentException(string wrongSurname, string message)
-        {
-            Assert.Throws<ArgumentException>(
-                () => { _contact.Surname = wrongSurname; },
-                message);
+            //Setup
+            var contact = new Contact();
+            var sourceName = "John";
+            var expectedName = sourceName;
+
+            //Act
+            contact.Name = sourceName;
+            var actualName = contact.Name;
+
+            //Assert
+            NUnit.Framework.Assert.AreEqual(expectedName, actualName);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="sortProject"> Лист для сортировки.</param>
         /// <returns></returns>
-        public static List<Contact> SortContacts(List<Contact> sortProject)
+        public List<Contact> SortContacts(List<Contact> sortProject)
         {
             var sortedUsers = from u in sortProject orderby u.Surname select u;
             return sortedUsers.ToList();
@@ -31,7 +31,7 @@ namespace ContactsApp
         /// <param name="substringForSearch"> Строка по которой ведется поиск.</param>
         /// <param name="project"> Список контактов для поиска.</param>
         /// <returns></returns>
-        public static Project SortContacts(string substringForSearch, Project project)
+        public Project SortContacts(string substringForSearch, Project project)
         {
             var findProject = new Project();
             if (substringForSearch == "")
@@ -56,7 +56,7 @@ namespace ContactsApp
         /// <param name="date"> Сегодняшний день.</param>
         /// <param name="project"> Контакты для поиска.</param>
         /// <returns></returns>
-        public static List<Contact> BirthDayContactsFind(DateTime date, Project project)
+        public List<Contact> BirthDayContactsFind(DateTime date, Project project)
         {
             var foundContacts = project.Contacts.Where(contact => 
                 contact.BirthDate.Month == date.Month && contact.BirthDate.Day == date.Day);
