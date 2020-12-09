@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -7,6 +8,28 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     public class ContactTest
     {
+
+        public string TooLongString()
+        {
+            return "012345678901234567890123456789012345678901234567890123456789";
+        }
+
+        public Contact PrepareContact()
+        {
+            var sourceNumber = 79996196969;
+            var phoneNumber = new PhoneNumber { Number = sourceNumber };
+            var contact = new Contact
+            {
+                Name = "John",
+                Surname = "Smith",
+                BirthDate = DateTime.Now,
+                PhoneNumber = phoneNumber,
+                Email = "white@bk.com",
+                IdVk = "463723"
+            };
+            return contact;
+        }
+
         [Test]
         public void Name_GoodName_ReturnsSameName()
         {
@@ -28,7 +51,6 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
-            const string sourceName = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -36,7 +58,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Name = sourceName;
+                    contact.Name = TooLongString();
                 }
             );
         }
@@ -96,7 +118,6 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
-            const string sourceSurname = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -104,7 +125,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Surname = sourceSurname;
+                    contact.Surname = TooLongString();
                 }
             );
         }
@@ -182,7 +203,6 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
-            const string sourceEmail = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -190,7 +210,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Email = sourceEmail;
+                    contact.Email = TooLongString();
                 }
             );
         }
@@ -216,7 +236,6 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
-            const string sourceIdVk = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -224,7 +243,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.IdVk = sourceIdVk;
+                    contact.IdVk = TooLongString();
                 }
             );
         }
@@ -267,17 +286,7 @@ namespace ContactsApp.UnitTests
         public void Clone_GoodClone_ReturnsSameObject()
         {
             //Setup
-            var sourceNumber = 79996196969;
-            var phoneNumber = new PhoneNumber{Number = sourceNumber};
-            var expectedContact = new Contact
-            {
-                Name = "John",
-                Surname = "Smith",
-                BirthDate = DateTime.Now,
-                PhoneNumber = phoneNumber,
-                Email = "white@bk.com",
-                IdVk = "463723"
-            };
+            var expectedContact = PrepareContact();
 
             //Act
             var actualContact = expectedContact.Clone() as Contact;
@@ -286,7 +295,6 @@ namespace ContactsApp.UnitTests
 
             //Assert
             Assert.AreEqual(expected, actual);
-
         }
     }
 }

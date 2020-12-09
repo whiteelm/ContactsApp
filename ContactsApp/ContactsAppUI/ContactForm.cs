@@ -11,16 +11,16 @@ namespace ContactsAppUI
     /// </summary>
     public partial class ContactForm : Form
     {
-        private Contact _tempContact;
+        private Contact _contact;
         /// <summary>
         /// Временный проект для добавления или редактирования контакта.
         /// </summary>
-        public Contact TempContact
+        public Contact Contact
         {
-            get => _tempContact;
+            get => _contact;
             set
             {
-                _tempContact = value;
+                _contact = value;
                 surnameTextBox.Text = value.Surname;
                 nameTextBox.Text = value.Name;
                 idVkTextBox.Text = value.IdVk;
@@ -80,16 +80,16 @@ namespace ContactsAppUI
             try
             {
                 CheckCorrect();
-                TempContact.Surname = surnameTextBox.Text;
-                TempContact.Name = nameTextBox.Text;
-                TempContact.IdVk = idVkTextBox.Text;
-                TempContact.Email = emailTextBox.Text;
-                TempContact.BirthDate = birthDatePicker.Value;
+                Contact.Surname = surnameTextBox.Text;
+                Contact.Name = nameTextBox.Text;
+                Contact.IdVk = idVkTextBox.Text;
+                Contact.Email = emailTextBox.Text;
+                Contact.BirthDate = birthDatePicker.Value;
                 var phoneNumber = new PhoneNumber
                 {
                     Number = phoneTextBox.Text != "" ? Convert.ToInt64(phoneTextBox.Text) : 0
                 };
-                TempContact.PhoneNumber = phoneNumber;
+                Contact.PhoneNumber = phoneNumber;
                 DialogResult = DialogResult.OK;
             }
             catch (Exception exception)

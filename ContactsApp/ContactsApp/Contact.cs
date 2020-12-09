@@ -160,5 +160,25 @@ the current date and cannot be less than 1900");
         /// Возвращает и задаёт ID личной страницы Вконтакте.
         /// </summary>
         private string _idVk;
+
+        /// <summary>Determines whether the specified object is equal to the current object.</summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
+        public override bool Equals(object obj)
+        {
+            var toCompareWith = obj as Contact;
+            if (toCompareWith == null)
+            {
+                return false;
+            }
+
+            return Name == toCompareWith.Name &&
+                   Surname == toCompareWith.Surname &&
+                   PhoneNumber.Number == toCompareWith.PhoneNumber.Number &&
+                   IdVk == toCompareWith.IdVk &&
+                   Email == toCompareWith.Email &&
+                   BirthDate == toCompareWith.BirthDate;
+        }
     }
 }
+

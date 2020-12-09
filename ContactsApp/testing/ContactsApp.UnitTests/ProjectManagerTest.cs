@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -51,15 +50,12 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var sourceProject = PrepareProject();
-
-            var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestData";
-            var actualFileName = testDataFolder + @"\actualProject.json"; 
-            var expectedDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
-            var expectedFileName = expectedDataFolder + @"\expectedProject.json";
-            if (Directory.Exists(testDataFolder))
+            var testDataFolder = Common.DataFolderForTest();
+            var actualFileName = testDataFolder + @"\actualProject.json";
+            var expectedFileName = testDataFolder + @"\expectedProject.json";
+            if (File.Exists(actualFileName))
             {
-                Directory.Delete(testDataFolder, true);
+                File.Delete(actualFileName);
             }
 
             //Act
@@ -75,44 +71,45 @@ namespace ContactsApp.UnitTests
         }
 
         [Test]
+        public void SaveToFile_CreateFolder_FolderIsExist()
+        {
+            //Setup
+            var project = PrepareProject();
+            
+            var testDataFolder = Common.DataFolderForTest()+"CreateTest";
+            var testFileName = testDataFolder + @"CreateFolderTest";
+            if (Directory.Exists(testDataFolder))
+            {
+                Directory.Delete(testDataFolder);
+            }
+
+            //Act
+            ProjectManager.SaveToFile(project, testFileName, testDataFolder);
+
+            //Assert
+            Assert.IsTrue(Directory.Exists(testDataFolder));
+        }
+
+        [Test]
         public void LoadFromFile_CorrectProject_FileLoadedCorrectly()
         {
             //Setup
             var expectedProject = PrepareProject();
-
-            var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
+            var testDataFolder = Common.DataFolderForTest();
             var testFileName = testDataFolder + @"\expectedProject.json";
 
             //Act
             var actualProject = ProjectManager.LoadFromFile(testFileName);
-            var expected = JsonConvert.SerializeObject(expectedProject);
-            var actual = JsonConvert.SerializeObject(actualProject);
+            
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedProject.Contacts, actualProject.Contacts);
         }
-
-        [Test]
-        public void LoadFromFile_UnCorrectPath_ReturnEmptyProject()
-        {
-            //Setup
-            var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\Wrong";
-            var testFileName = testDataFolder + @"\Wrong.json";
-
-            //Act
-            var actualProject = ProjectManager.LoadFromFile(testFileName);
-
-            //Assert
-            Assert.IsEmpty(actualProject.Contacts);
-        }
-
+        
         [Test]
         public void LoadFromFile_UnCorrectFile_ReturnEmptyProject()
         {
             //Setup
-            var location = Assembly.GetExecutingAssembly().Location;
-            var testDataFolder = Path.GetDirectoryName(location) + @"\TestDataExpected";
+            var testDataFolder = Common.DataFolderForTest();
             var testFileName = testDataFolder + @"\defectiveProject.json";
 
             //Act
@@ -123,11 +120,24 @@ namespace ContactsApp.UnitTests
         }
 
         [Test]
+        public void LoadFromFile_UnCorrectPath_ReturnEmptyProject()
+        {
+            //Setup
+            var testFileName = Common.DataFolderForTest()+"wrong";
+
+            //Act
+            var actualProject = ProjectManager.LoadFromFile(testFileName);
+
+            //Assert
+            Assert.IsEmpty(actualProject.Contacts);
+        }
+        
+        [Test]
         public void FilePath_GoodFilePath_ReturnSamePath()
         {
             //Setup
-            var expectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            expectedPath += @"\ContactsApp\Contacts.json";
+            var expectedPath = Common.FilePath();
+
             //Act
             var actualPath = ProjectManager.FilePath();
 
@@ -139,8 +149,8 @@ namespace ContactsApp.UnitTests
         public void DirectoryPath_GoodDirectoryPath_ReturnSameDirectory()
         {
             //Setup
-            var expectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            expectedPath += @"\ContactsApp\";
+            var expectedPath = Common.DirectoryPath();
+
             //Act
             var actualPath = ProjectManager.DirectoryPath();
 
