@@ -47,8 +47,7 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var phoneNumber = new PhoneNumber();
-            var sourceNumber = 87776665547;
-
+            var sourceNumber = 877766655477777777;
 
             //Assert
             Assert.Throws<ArgumentException>
