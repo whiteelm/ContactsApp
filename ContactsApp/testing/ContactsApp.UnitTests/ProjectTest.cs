@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    class ProjectTest
+    public class ProjectTest
     {
         [Test]
         public void SortContacts_GoodSort_ReturnSortedContacts()

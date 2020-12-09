@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    internal class ProjectManagerTest
+    public class ProjectManagerTest
     {
         public Project PrepareProject()
         {

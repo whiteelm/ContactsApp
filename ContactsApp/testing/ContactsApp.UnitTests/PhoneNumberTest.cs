@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace ContactsApp.UnitTests
 {
     [TestFixture]
-    class PhoneNumberTest
+    public class PhoneNumberTest
     {
 
         [Test]
@@ -43,11 +43,11 @@ namespace ContactsApp.UnitTests
         }
 
         [Test]
-        public void PhoneNumber_WrongPhoneNumberLength_ThrowsException()
+        public void PhoneNumber_TooLongPhoneNumber_ThrowsException()
         {
             //Setup
             var phoneNumber = new PhoneNumber();
-            var sourceNumber = 8777666554;
+            var sourceNumber = 87776665547;
 
 
             //Assert
