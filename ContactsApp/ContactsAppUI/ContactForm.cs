@@ -151,7 +151,7 @@ VkId should consist of Latin letters.It is possible to enter a underscore betwee
         /// <summary>
         /// Паттерн айди вк. Ввод латинских букв и возможность ввода _ между словами.
         /// </summary>
-        private const string RegexIdVk = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)+(_[a-zA-Z0-9]+)?$";
+        private const string RegexIdVk = "^[a-zA-Z0-9]+(_[a-zA-Z0-9]+)?$";
 
         /// <summary>
         /// Проверка фамилии на ввод по патерну.

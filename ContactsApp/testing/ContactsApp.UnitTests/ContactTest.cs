@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
@@ -8,16 +6,13 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     public class ContactTest
     {
-
-        public string TooLongString()
-        {
-            return "012345678901234567890123456789012345678901234567890123456789";
-        }
-
         public Contact PrepareContact()
         {
             var sourceNumber = 79996196969;
-            var phoneNumber = new PhoneNumber { Number = sourceNumber };
+            var phoneNumber = new PhoneNumber
+            {
+                Number = sourceNumber
+            };
             var contact = new Contact
             {
                 Name = "John",
@@ -46,8 +41,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expectedName, actualName);
         }
 
-        [Test]
-        public void Name_TooLongName_ThrowsException()
+        [TestCase("")]
+        [TestCase("012345678901234567890123456789012345678901234567890123456789")]
+        public void Name_WrongName_ThrowsException(string wrongName)
         {
             //Setup
             var contact = new Contact();
@@ -58,25 +54,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Name = TooLongString();
-                }
-            );
-        }
-
-        [Test]
-        public void Name_EmptyName_ThrowsException()
-        {
-            //Setup
-            var contact = new Contact();
-            const string sourceName = "";
-
-            //Assert
-            Assert.Throws<ArgumentException>
-            (
-                () =>
-                {
-                    //Act
-                    contact.Name = sourceName;
+                    contact.Name = wrongName;
                 }
             );
         }
@@ -113,8 +91,9 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expectedSurname, actualSurname);
         }
 
-        [Test]
-        public void Surname_TooLongSurname_ThrowsException()
+        [TestCase("")]
+        [TestCase("012345678901234567890123456789012345678901234567890123456789")]
+        public void Surname_WrongSurname_ThrowsException(string wrongName)
         {
             //Setup
             var contact = new Contact();
@@ -125,29 +104,11 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Surname = TooLongString();
+                    contact.Surname = wrongName;
                 }
             );
         }
-
-        [Test]
-        public void Surname_EmptySurname_ThrowsException()
-        {
-            //Setup
-            var contact = new Contact();
-            const string sourceSurname = "";
-
-            //Assert
-            Assert.Throws<ArgumentException>
-            (
-                () =>
-                {
-                    //Act
-                    contact.Surname = sourceSurname;
-                }
-            );
-        }
-
+        
         [Test]
         public void Surname_ChangeSurnameRegister_ReturnsRegisterChangedSurname()
         {
@@ -203,6 +164,7 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
+            var sourceEmail = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -210,7 +172,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.Email = TooLongString();
+                    contact.Email = sourceEmail;
                 }
             );
         }
@@ -236,6 +198,7 @@ namespace ContactsApp.UnitTests
         {
             //Setup
             var contact = new Contact();
+            var sourceEmail = "012345678901234567890123456789012345678901234567890123456789";
 
             //Assert
             Assert.Throws<ArgumentException>
@@ -243,7 +206,7 @@ namespace ContactsApp.UnitTests
                 () =>
                 {
                     //Act
-                    contact.IdVk = TooLongString();
+                    contact.IdVk = sourceEmail;
                 }
             );
         }
@@ -290,11 +253,9 @@ namespace ContactsApp.UnitTests
 
             //Act
             var actualContact = expectedContact.Clone() as Contact;
-            var expected = JsonConvert.SerializeObject(expectedContact);
-            var actual = JsonConvert.SerializeObject(actualContact);
 
             //Assert
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expectedContact, actualContact);
         }
     }
 }
