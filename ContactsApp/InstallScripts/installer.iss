@@ -30,8 +30,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\Кежик\source\repos\whiteelm\ContactsApp\ContactsApp\InstallScripts\Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\Кежик\source\repos\whiteelm\ContactsApp\ContactsApp\InstallScripts\Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

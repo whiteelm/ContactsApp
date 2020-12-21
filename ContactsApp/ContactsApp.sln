@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactsApp", "ContactsApp\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testing", "testing", "{60D8CED4-034C-4FED-8D2A-307E737E362F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.UnitTests", "testing\ContactsApp.UnitTests\ContactsApp.UnitTests.csproj", "{D14A0F92-6631-446B-9297-9A6B66474E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactsApp.UnitTests", "testing\ContactsApp.UnitTests\ContactsApp.UnitTests.csproj", "{D14A0F92-6631-446B-9297-9A6B66474E40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C393CB97-069F-45E8-BCF7-E17847BC4164}"
+	ProjectSection(SolutionItems) = preProject
+		InstallScripts\installer.iss = InstallScripts\installer.iss
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
