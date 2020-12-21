@@ -73,6 +73,16 @@ namespace ContactsAppUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AddButtonIcon30x30 {
+            get {
+                object obj = ResourceManager.GetObject("AddButtonIcon30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap BirthPic {
             get {
                 object obj = ResourceManager.GetObject("BirthPic", resourceCulture);
@@ -93,9 +103,29 @@ namespace ContactsAppUI.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap DeleteButtonIcon30x30 {
+            get {
+                object obj = ResourceManager.GetObject("DeleteButtonIcon30x30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap EditButtonIcon {
             get {
                 object obj = ResourceManager.GetObject("EditButtonIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap EditButtonIcon30x30 {
+            get {
+                object obj = ResourceManager.GetObject("EditButtonIcon30x30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,16 @@ namespace ContactsAppUI.Properties {
         public static System.Drawing.Icon MainFormIcon {
             get {
                 object obj = ResourceManager.GetObject("MainFormIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        public static System.Drawing.Icon MainFormIcon30x30 {
+            get {
+                object obj = ResourceManager.GetObject("MainFormIcon30x30", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -301,7 +301,7 @@
             // 
             this.deleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteButton.BackColor = System.Drawing.SystemColors.Window;
-            this.deleteButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.DeleteButtonIcon;
+            this.deleteButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.DeleteButtonIcon30x30;
             this.deleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -318,7 +318,7 @@
             // 
             this.editButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editButton.BackColor = System.Drawing.SystemColors.Window;
-            this.editButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.EditButtonIcon;
+            this.editButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.EditButtonIcon30x30;
             this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -335,7 +335,7 @@
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addButton.BackColor = System.Drawing.SystemColors.Window;
-            this.addButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.AddButtonIcon;
+            this.addButton.BackgroundImage = global::ContactsAppUI.Properties.Resources.AddButtonIcon30x30;
             this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

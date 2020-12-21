@@ -7,7 +7,7 @@
     <ProjectGuid>{A1645C43-C284-4FF2-A523-D8E2F75F9ECD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ContactsAppUI</RootNamespace>
-    <AssemblyName>ContactsAppUI</AssemblyName>
+    <AssemblyName>ContactsApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainFormIcon30x30.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -103,12 +106,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ContactsApp\ContactsApp.csproj">
-      <Project>{8f34aa32-0a0a-4cc4-9cbc-d91e01933272}</Project>
-      <Name>ContactsApp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\EditButtonIcon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +120,27 @@
   <ItemGroup>
     <None Include="Resources\BirthPic.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddButtonIcon30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteButtonIcon30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditButtonIcon30x30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MainFormIcon30x30.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MainFormIcon30x30.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsApp\ContactsApp.csproj">
+      <Project>{8f34aa32-0a0a-4cc4-9cbc-d91e01933272}</Project>
+      <Name>ContactsApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>md $(SolutionDir)InstallScripts
@@ -130,7 +148,7 @@ md $(SolutionDir)InstallScripts\Release
 md $(SolutionDir)InstallScripts\Installers
 xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\Release\
 xcopy $(ProjectDir)$(OutDir)*.exe $(SolutionDir)InstallScripts\Release\
-"C:\Program Files (x86)\Inno Setup 6\Compil32.exe" $(SolutionDir)InstallScripts\Installers\installer.iss
+"C:\Program Files (x86)\Inno Setup 6\Compil32.exe" $(SolutionDir)InstallScripts\installer.iss
 rd /S /Q $(SolutionDir)InstallScripts\Release</PostBuildEvent>
   </PropertyGroup>
 </Project>
