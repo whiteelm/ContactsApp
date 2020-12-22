@@ -21,7 +21,7 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-InstallScripts/[Ii]nstallers/
+ContactsApp\InstallScripts\Installers
 x64/
 x86/
 [Aa][Rr][Mm]/
