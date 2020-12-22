@@ -107,13 +107,13 @@ namespace ContactsAppUI
             if (surnameTextBox.BackColor == Color.LightCoral)
             {
                 throw new ArgumentException(message: @"The name was entered incorrectly.
-It must be composed of the letters of the Russian alphabet.
+It must be composed of the letters of the Russian and latin alphabet.
 You can enter a double name separated by a dash.");
             }
             if (nameTextBox.BackColor == Color.LightCoral)
             {
                 throw new ArgumentException(message: @"The surname was entered incorrectly.
-It must be composed of the letters of the Russian alphabet.
+It must be composed of the letters of the Russian and latin alphabet.
 You can enter a double name separated by a dash.");
             }
             if (phoneTextBox.BackColor == Color.LightCoral)

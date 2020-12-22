@@ -56,7 +56,7 @@ namespace ContactsApp
         /// <param name="date"> Сегодняшний день.</param>
         /// <param name="project"> Контакты для поиска.</param>
         /// <returns></returns>
-        public List<Contact> BirthDayContactsFind(DateTime date, Project project)
+        public List<Contact> FindBirthDayContacts(DateTime date, Project project)
         {
             var foundContacts = project.Contacts.Where(contact => 
                 contact.BirthDate.Month == date.Month && contact.BirthDate.Day == date.Day);
