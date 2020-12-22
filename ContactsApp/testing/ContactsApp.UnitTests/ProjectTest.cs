@@ -207,7 +207,7 @@ namespace ContactsApp.UnitTests
             //Act
             var actualProject = new Project
             {
-                Contacts = sourceProject.BirthDayContactsFind(DateTime.Now, sourceProject)
+                Contacts = sourceProject.FindBirthDayContacts(DateTime.Now, sourceProject)
             };
             var expected = JsonConvert.SerializeObject(expectedProject);
             var actual = JsonConvert.SerializeObject(actualProject);

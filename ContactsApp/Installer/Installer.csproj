@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="&quot;$(SolutionDir)packages\Tools.InnoSetup.6.1.2\tools\ISCC.exe&quot; $(SolutionDir)InstallScripts\installer.iss" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsAppUI\ContactsAppUI.csproj" />
+  </ItemGroup>
+
+</Project>
