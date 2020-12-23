@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
