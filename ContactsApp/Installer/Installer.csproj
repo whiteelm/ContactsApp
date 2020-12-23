@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="&quot;$(SolutionDir)packages\Tools.InnoSetup.6.1.2\tools\ISCC.exe&quot; $(SolutionDir)InstallScripts\installer.iss" />
+    <Exec Command="&quot;$(SolutionDir)packages\Tools.InnoSetup.6.1.2\tools\ISCC.exe&quot; &quot;$(SolutionDir)InstallScripts\installer.iss&quot;" />
   </Target>
 
   <ItemGroup>
