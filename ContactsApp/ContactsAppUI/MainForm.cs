@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using ContactsApp;
 
@@ -166,23 +167,9 @@ namespace ContactsAppUI
         /// </summary>
         private void BirthDaysContacts()
         {
-            var birthDayContactsFind = new Project();
-            var birthDaysContacts = new Project { Contacts =
-                birthDayContactsFind.FindBirthDayContacts(DateTime.Today, _project.Contacts) };
-            if (birthDaysContacts.Contacts.Count == 0)
-            {
-                return;
-            }
-            birthContactsLabel.Text = "";
-            for (var index = 0; index < birthDaysContacts.Contacts.Count; index++)
-            {
-                var contact = birthDaysContacts.Contacts[index];
-                birthContactsLabel.Text += contact.Surname;
-                if (index < birthDaysContacts.Contacts.Count - 1)
-                {
-                    birthContactsLabel.Text += @", ";
-                }
-            }
+            var surnames = _project.Contacts.Where(contact => 
+                contact.BirthDate == DateTime.Today).Select(contact => contact.Surname);
+            birthContactsLabel.Text = string.Join(", ", surnames);
         }
 
         /// <summary>

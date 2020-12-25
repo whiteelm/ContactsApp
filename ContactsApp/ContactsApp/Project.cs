@@ -48,18 +48,5 @@ namespace ContactsApp
             findProject = SortContacts(findProject);
             return findProject;
         }
-
-        /// <summary>
-        /// Поиск контактов у которых день рождения.
-        /// </summary>
-        /// <param name="date"> Сегодняшний день.</param>
-        /// <param name="contacts"> Контакты для поиска.</param>
-        /// <returns></returns>
-        public List<Contact> FindBirthDayContacts(DateTime date, List<Contact> contacts)
-        {
-            var birthDayContacts = contacts.Where(contact => contact.BirthDate.Month == 
-                date.Month && contact.BirthDate.Day == date.Day).ToList();
-            return SortContacts(birthDayContacts);
-        }
     }
 }
